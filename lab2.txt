@@ -1,0 +1,27 @@
+@sonyakkmas ➜ /workspaces/infosec (main) $ sudo vim /usr/local/bin/system_info
+@sonyakkmas ➜ /workspaces/infosec (main) $ sudo chmod +x /usr/local/bin/system_info
+@sonyakkmas ➜ /workspaces/infosec (main) $ system_info
+Hostname: codespaces-3e4ace
+Current User: codespace
+Disk Space: Filesystem      Size  Used Avail Use% Mounted on
+overlay          32G   11G   19G  37% /
+tmpfs            64M     0   64M   0% /dev
+shm              64M     0   64M   0% /dev/shm
+/dev/root        29G   16G   13G  56% /vscode
+/dev/loop4       32G   11G   19G  37% /workspaces
+/dev/sdb1        44G  4.0G   38G  10% /tmp
+
+@sonyakkmas ➜ /workspaces/infosec (main) $ id -un
+codespace
+@sonyakkmas ➜ /workspaces/infosec (main) $ whoami
+codespace
+@sonyakkmas ➜ /workspaces/infosec (main) $ ls
+README.md  lab1.txt  lab2.txt  lab3.txt
+@sonyakkmas ➜ /workspaces/infosec (main) $ vim greeting.sh
+@sonyakkmas ➜ /workspaces/infosec (main) $ sudo chmod +x greeting.sh
+@sonyakkmas ➜ /workspaces/infosec (main) $ greeting
+bash: greeting: command not found
+@sonyakkmas ➜ /workspaces/infosec (main) $ ls
+README.md  greeting.sh  lab1.txt  lab2.txt  lab3.txt
+@sonyakkmas ➜ /workspaces/infosec (main) $ ./greeting.sh
+Hello, codespace!
