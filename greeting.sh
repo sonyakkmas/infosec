@@ -1,5 +1,3 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
-NAME=$(whoami)
-
-echo "Hello, $NAME!"
+echo "Hello, $USER!"

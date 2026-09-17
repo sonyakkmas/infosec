@@ -1,0 +1,67 @@
+sonya@sonya-laptop:~/dev/auca/infosec/infosec$ ls
+count_word.sh    delete_empty_files.sh  greeting.sh  lab2.txt  README.md
+current_time.sh  example_text.txt       lab1.txt     lab3.txt
+sonya@sonya-laptop:~/dev/auca/infosec/infosec$ vim toy_shell.py
+sonya@sonya-laptop:~/dev/auca/infosec/infosec$ python toy_shell.py 
+Command 'python' not found, did you mean:
+  command 'python3' from deb python3
+  command 'python' from deb python-is-python3
+sonya@sonya-laptop:~/dev/auca/infosec/infosec$ python3 toy_shell.py 
+Toy Shell: List files and folders older than a given date (based on creation time)
+Enter a date in the format YYYY-MM-DD or type 'exit' to quit.
+toy-shell> mkdir toy_shell_test
+Invalid date format. Please use YYYY-MM-DD.
+toy-shell> exit
+Exiting toy shell.
+sonya@sonya-laptop:~/dev/auca/infosec/infosec$ mkdir toy_shell_test
+sonya@sonya-laptop:~/dev/auca/infosec/infosec$ cd toy_shell_test
+sonya@sonya-laptop:~/dev/auca/infosec/infosec/toy_shell_test$ touch old_file.txt
+sonya@sonya-laptop:~/dev/auca/infosec/infosec/toy_shell_test$ touch new_file.txt
+sonya@sonya-laptop:~/dev/auca/infosec/infosec/toy_shell_test$ mkdir old_folder
+sonya@sonya-laptop:~/dev/auca/infosec/infosec/toy_shell_test$ mkdir new_folder
+sonya@sonya-laptop:~/dev/auca/infosec/infosec/toy_shell_test$ touch -d "2024-01-01" old_file.txt
+sonya@sonya-laptop:~/dev/auca/infosec/infosec/toy_shell_test$ touch -d "2024-01-01" old_folder
+sonya@sonya-laptop:~/dev/auca/infosec/infosec/toy_shell_test$ cd ..
+sonya@sonya-laptop:~/dev/auca/infosec/infosec$ python3 toy_shell.py 
+Toy Shell: List files and folders older than a given date (based on creation time)
+Enter a date in the format YYYY-MM-DD or type 'exit' to quit.
+toy-shell> 2025-01-01
+toy-shell> exit
+Exiting toy shell.
+sonya@sonya-laptop:~/dev/auca/infosec/infosec$ cd toy_shell_test/
+sonya@sonya-laptop:~/dev/auca/infosec/infosec/toy_shell_test$ python3 ../toy_shell.py
+Toy Shell: List files and folders older than a given date (based on creation time)
+Enter a date in the format YYYY-MM-DD or type 'exit' to quit.
+toy-shell> 2025-01-01
+toy-shell> exit
+Exiting toy shell.
+sonya@sonya-laptop:~/dev/auca/infosec/infosec/toy_shell_test$ vim ../toy_shell.py 
+sonya@sonya-laptop:~/dev/auca/infosec/infosec/toy_shell_test$ python3 ../toy_shell.py
+Toy Shell: List files and folders older than a given date (based on creation time)
+Enter a date in the format YYYY-MM-DD or type 'exit' to quit.
+toy-shell> 2025-01-01
+old_folder (Folder, Created: 2024-01-01 00:00:00)
+old_file.txt (File, Created: 2024-01-01 00:00:00)
+toy-shell> exit
+Exiting toy shell.
+sonya@sonya-laptop:~/dev/auca/infosec/infosec/toy_shell_test$ sudo mv toy_shell.py /usr/local/bin/toy_shell
+mv: cannot stat 'toy_shell.py': No such file or directory
+sonya@sonya-laptop:~/dev/auca/infosec/infosec/toy_shell_test$ cd ..
+sonya@sonya-laptop:~/dev/auca/infosec/infosec$ sudo mv toy_shell.py /usr/local/bin/toy_shell
+sonya@sonya-laptop:~/dev/auca/infosec/infosec$ sudo chmod +x /usr/local/bin/toy_shell
+sonya@sonya-laptop:~/dev/auca/infosec/infosec$ toy_shell
+Toy Shell: List files and folders older than a given date (based on creation time)
+Enter a date in the format YYYY-MM-DD or type 'exit' to quit.
+toy-shell> exit
+Exiting toy shell.
+sonya@sonya-laptop:~/dev/auca/infosec/infosec$ ls
+count_word.sh    delete_empty_files.sh  greeting.sh  lab2.txt  README.md
+current_time.sh  example_text.txt       lab1.txt     lab3.txt  toy_shell_test
+sonya@sonya-laptop:~/dev/auca/infosec/infosec$ rm -r toy_shell_test/
+sonya@sonya-laptop:~/dev/auca/infosec/infosec$ ls
+count_word.sh    delete_empty_files.sh  greeting.sh  lab2.txt  README.md
+current_time.sh  example_text.txt       lab1.txt     lab3.txt
+sonya@sonya-laptop:~/dev/auca/infosec/infosec$ rm -r example_text.txt 
+sonya@sonya-laptop:~/dev/auca/infosec/infosec$ ls
+count_word.sh    delete_empty_files.sh  lab1.txt  lab3.txt
+current_time.sh  greeting.sh            lab2.txt  README.md

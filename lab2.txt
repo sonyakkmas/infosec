@@ -1,27 +1,62 @@
-@sonyakkmas ➜ /workspaces/infosec (main) $ sudo vim /usr/local/bin/system_info
-@sonyakkmas ➜ /workspaces/infosec (main) $ sudo chmod +x /usr/local/bin/system_info
-@sonyakkmas ➜ /workspaces/infosec (main) $ system_info
-Hostname: codespaces-3e4ace
-Current User: codespace
+sonya@sonya-laptop:~/dev/auca/infosec$ sudo vim /usr/local/bin/system_info
+[sudo] password for sonya: 
+sonya@sonya-laptop:~/dev/auca/infosec$ sudo chmod +x /usr/local/bin/system_info
+sonya@sonya-laptop:~/dev/auca/infosec$ system_info
+Hostname: sonya-laptop
+Current User: sonya
 Disk Space: Filesystem      Size  Used Avail Use% Mounted on
-overlay          32G   11G   19G  37% /
-tmpfs            64M     0   64M   0% /dev
-shm              64M     0   64M   0% /dev/shm
-/dev/root        29G   16G   13G  56% /vscode
-/dev/loop4       32G   11G   19G  37% /workspaces
-/dev/sdb1        44G  4.0G   38G  10% /tmp
-
-@sonyakkmas ➜ /workspaces/infosec (main) $ id -un
-codespace
-@sonyakkmas ➜ /workspaces/infosec (main) $ whoami
-codespace
-@sonyakkmas ➜ /workspaces/infosec (main) $ ls
-README.md  lab1.txt  lab2.txt  lab3.txt
-@sonyakkmas ➜ /workspaces/infosec (main) $ vim greeting.sh
-@sonyakkmas ➜ /workspaces/infosec (main) $ sudo chmod +x greeting.sh
-@sonyakkmas ➜ /workspaces/infosec (main) $ greeting
-bash: greeting: command not found
-@sonyakkmas ➜ /workspaces/infosec (main) $ ls
-README.md  greeting.sh  lab1.txt  lab2.txt  lab3.txt
-@sonyakkmas ➜ /workspaces/infosec (main) $ ./greeting.sh
-Hello, codespace!
+tmpfs           1,6G  3,5M  1,6G   1% /run
+/dev/nvme0n1p1  468G  331G  114G  75% /
+tmpfs           7,7G   91M  7,6G   2% /dev/shm
+tmpfs           5,0M  4,0K  5,0M   1% /run/lock
+efivarfs        192K  130K   58K  70% /sys/firmware/efi/efivars
+tmpfs           7,7G     0  7,7G   0% /run/qemu
+/dev/nvme1n1    1,8T  497G  1,3T  29% /media/sonya/Games
+/dev/nvme0n1p2  1,1G  6,1M  1,1G   1% /boot/efi
+tmpfs           1,6G  128K  1,6G   1% /run/user/1000
+sonya@sonya-laptop:~/dev/auca/infosec$ vim greeting.sh
+sonya@sonya-laptop:~/dev/auca/infosec$ ls
+greeting.sh  infosec
+sonya@sonya-laptop:~/dev/auca/infosec$ mv greeting.sh infosec/
+sonya@sonya-laptop:~/dev/auca/infosec$ cd infosec/
+sonya@sonya-laptop:~/dev/auca/infosec/infosec$ ls
+greeting.sh  lab1.txt  lab2.txt  lab3.txt  README.md
+sonya@sonya-laptop:~/dev/auca/infosec/infosec$ chmod +x greeting.sh
+sonya@sonya-laptop:~/dev/auca/infosec/infosec$ ./greeting.sh 
+Hello, sonya!
+sonya@sonya-laptop:~/dev/auca/infosec/infosec$ vim current_time.sh
+sonya@sonya-laptop:~/dev/auca/infosec/infosec$ chmod +x current_time.sh
+./current_time.sh
+Current time: 10:44.
+Work day ends after 7 hours and 16 minutes.
+sonya@sonya-laptop:~/dev/auca/infosec/infosec$ count_word.sh
+count_word.sh: command not found
+sonya@sonya-laptop:~/dev/auca/infosec/infosec$ vim count_word.sh
+sonya@sonya-laptop:~/dev/auca/infosec/infosec$ chmod +x count_word.sh
+sonya@sonya-laptop:~/dev/auca/infosec/infosec$ vim example_text.txt
+sonya@sonya-laptop:~/dev/auca/infosec/infosec$ cat example_text.txt 
+Hello 
+Hello
+Hello
+Bye 
+Bye
+sonya@sonya-laptop:~/dev/auca/infosec/infosec$ ./count_word.sh example_text.txt hello
+The word 'hello' appears 0 times in example_text.txt.
+sonya@sonya-laptop:~/dev/auca/infosec/infosec$ ./count_word.sh example_text.txt Hello
+The word 'Hello' appears 3 times in example_text.txt.
+sonya@sonya-laptop:~/dev/auca/infosec/infosec$ ./count_word.sh example_text.txt Bello
+The word 'Bello' appears 0 times in example_text.txt.
+sonya@sonya-laptop:~/dev/auca/infosec/infosec$ ./count_word.sh example_text.txt Bye
+The word 'Bye' appears 2 times in example_text.txt.
+sonya@sonya-laptop:~/dev/auca/infosec/infosec$ vim empty_file.txt
+sonya@sonya-laptop:~/dev/auca/infosec/infosec$ ls
+count_word.sh    empty_file.txt    greeting.sh  lab2.txt  README.md
+current_time.sh  example_text.txt  lab1.txt     lab3.txt
+sonya@sonya-laptop:~/dev/auca/infosec/infosec$ vim delete_empty_files.sh
+sonya@sonya-laptop:~/dev/auca/infosec/infosec$ chmod +x delete_empty_files.sh 
+sonya@sonya-laptop:~/dev/auca/infosec/infosec$ ./delete_empty_files.sh .
+./empty_file.txt
+sonya@sonya-laptop:~/dev/auca/infosec/infosec$ ls
+count_word.sh    delete_empty_files.sh  greeting.sh  lab2.txt  README.md
+current_time.sh  example_text.txt       lab1.txt     lab3.txt
+sonya@sonya-laptop:~/dev/auca/infosec/infosec$ 
