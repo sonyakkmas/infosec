@@ -1,1 +1,104 @@
 sonya@sonya-laptop:~/dev/auca/infosec/infosec$ mkdir phishing
+sonya@sonya-laptop:~/dev/auca/infosec/infosec/lab4/phishing$ template.html
+template.html: command not found
+sonya@sonya-laptop:~/dev/auca/infosec/infosec/lab4/phishing$ vim template.html
+sonya@sonya-laptop:~/dev/auca/infosec/infosec/lab4/phishing$ pip install Flask
+Defaulting to user installation because normal site-packages is not writeable
+Collecting Flask
+  Using cached flask-3.1.3-py3-none-any.whl (103 kB)
+Collecting markupsafe>=2.1.1
+  Using cached markupsafe-3.0.4-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (20 kB)
+Collecting itsdangerous>=2.2.0
+  Using cached itsdangerous-2.2.0-py3-none-any.whl (16 kB)
+Collecting werkzeug>=3.1.0
+  Downloading werkzeug-3.1.9-py3-none-any.whl (228 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 228.7/228.7 KB 989.3 kB/s eta 0:00:00
+Collecting blinker>=1.9.0
+  Using cached blinker-1.9.0-py3-none-any.whl (8.5 kB)
+Collecting click>=8.1.3
+  Downloading click-8.5.0-py3-none-any.whl (125 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 125.3/125.3 KB 5.9 MB/s eta 0:00:00
+Requirement already satisfied: jinja2>=3.1.2 in /home/sonya/.local/lib/python3.10/site-packages (from Flask) (3.1.4)
+Installing collected packages: markupsafe, itsdangerous, click, blinker, werkzeug, Flask
+Successfully installed Flask-3.1.3 blinker-1.9.0 click-8.5.0 itsdangerous-2.2.0 markupsafe-3.0.4 werkzeug-3.1.9
+sonya@sonya-laptop:~/dev/auca/infosec/infosec/lab4/phishing$ vim server.py
+sonya@sonya-laptop:~/dev/auca/infosec/infosec/lab4/phishing$ python server.py
+Command 'python' not found, did you mean:
+  command 'python3' from deb python3
+  command 'python' from deb python-is-python3
+sonya@sonya-laptop:~/dev/auca/infosec/infosec/lab4/phishing$ python3 server.py
+Traceback (most recent call last):
+  File "/home/sonya/dev/auca/infosec/infosec/lab4/phishing/server.py", line 2, in <module>
+    from flask_cors import CORS
+ModuleNotFoundError: No module named 'flask_cors'
+sonya@sonya-laptop:~/dev/auca/infosec/infosec/lab4/phishing$ pip install flask-cors
+Defaulting to user installation because normal site-packages is not writeable
+Collecting flask-cors
+  Using cached flask_cors-6.0.5-py3-none-any.whl (16 kB)
+Requirement already satisfied: flask>=0.9 in /home/sonya/.local/lib/python3.10/site-packages (from flask-cors) (3.1.3)
+Requirement already satisfied: typing_extensions>=4.6.0 in /home/sonya/.local/lib/python3.10/site-packages (from flask-cors) (4.15.0)
+Requirement already satisfied: Werkzeug>=0.7 in /home/sonya/.local/lib/python3.10/site-packages (from flask-cors) (3.1.9)
+Requirement already satisfied: blinker>=1.9.0 in /home/sonya/.local/lib/python3.10/site-packages (from flask>=0.9->flask-cors) (1.9.0)
+Requirement already satisfied: jinja2>=3.1.2 in /home/sonya/.local/lib/python3.10/site-packages (from flask>=0.9->flask-cors) (3.1.4)
+Requirement already satisfied: markupsafe>=2.1.1 in /home/sonya/.local/lib/python3.10/site-packages (from flask>=0.9->flask-cors) (3.0.4)
+Requirement already satisfied: itsdangerous>=2.2.0 in /home/sonya/.local/lib/python3.10/site-packages (from flask>=0.9->flask-cors) (2.2.0)
+Requirement already satisfied: click>=8.1.3 in /home/sonya/.local/lib/python3.10/site-packages (from flask>=0.9->flask-cors) (8.5.0)
+Installing collected packages: flask-cors
+Successfully installed flask-cors-6.0.5
+sonya@sonya-laptop:~/dev/auca/infosec/infosec/lab4/phishing$ python3 server.py
+ * Serving Flask app 'server'
+ * Debug mode: on
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:8000
+Press CTRL+C to quit
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 972-494-352
+ * Detected change in '/home/sonya/dev/auca/infosec/infosec/lab4/phishing/mail.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 972-494-352
+
+sonya@sonya-laptop:~/dev/auca/infosec$ python3 lab4/phishing/mail.py
+python3: can't open file '/home/sonya/dev/auca/infosec/lab4/phishing/mail.py': [Errno 2] No such file or directory
+sonya@sonya-laptop:~/dev/auca/infosec$ ls
+infosec
+sonya@sonya-laptop:~/dev/auca/infosec$ cd infosec/
+sonya@sonya-laptop:~/dev/auca/infosec/infosec$ python3 lab4/phishing/mail.py
+Error sending email: Connection unexpectedly closed
+Traceback (most recent call last):
+  File "/home/sonya/dev/auca/infosec/infosec/lab4/phishing/mail.py", line 121, in <module>
+    server.quit()  # Close the connection
+  File "/usr/lib/python3.10/smtplib.py", line 1004, in quit
+    res = self.docmd("quit")
+  File "/usr/lib/python3.10/smtplib.py", line 431, in docmd
+    self.putcmd(cmd, args)
+  File "/usr/lib/python3.10/smtplib.py", line 378, in putcmd
+    self.send(f'{s}{CRLF}')
+  File "/usr/lib/python3.10/smtplib.py", line 365, in send
+    raise SMTPServerDisconnected('please run connect() first')
+smtplib.SMTPServerDisconnected: please run connect() first
+sonya@sonya-laptop:~/dev/auca/infosec/infosec$ python3 lab4/phishing/mail.py
+Error sending email: Connection unexpectedly closed
+Traceback (most recent call last):
+  File "/home/sonya/dev/auca/infosec/infosec/lab4/phishing/mail.py", line 122, in <module>
+    server.quit()  # Close the connection
+  File "/usr/lib/python3.10/smtplib.py", line 1004, in quit
+    res = self.docmd("quit")
+  File "/usr/lib/python3.10/smtplib.py", line 431, in docmd
+    self.putcmd(cmd, args)
+  File "/usr/lib/python3.10/smtplib.py", line 378, in putcmd
+    self.send(f'{s}{CRLF}')
+  File "/usr/lib/python3.10/smtplib.py", line 365, in send
+    raise SMTPServerDisconnected('please run connect() first')
+smtplib.SMTPServerDisconnected: please run connect() first
+sonya@sonya-laptop:~/dev/auca/infosec/infosec$ ^C
+sonya@sonya-laptop:~/dev/auca/infosec/infosec$ python3 lab4/phishing/mail.py
+Server disconnected: Connection unexpectedly closed
+sonya@sonya-laptop:~/dev/auca/infosec/infosec$ python3 lab4/phishing/mail.py
+Server disconnected: Connection unexpectedly closed
+sonya@sonya-laptop:~/dev/auca/infosec/infosec$ python3 lab4/phishing/mail.py
+Email sent successfully!
+sonya@sonya-laptop:~/dev/auca/infosec/infosec$ python3 lab4/phishing/mail.py
+Email sent successfully!
+sonya@sonya-laptop:~/dev/auca/infosec/infosec$ 
