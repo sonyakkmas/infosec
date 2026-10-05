@@ -1,0 +1,141 @@
+sonya@sonya-laptop:~/dev/auca/infosec/infosec$ systemctl status nginx
+● nginx.service - A high performance web server and a reverse proxy server
+     Loaded: loaded (/lib/systemd/system/nginx.service; enabled; vendor preset: enabled)
+     Active: active (running) since Mon 2026-10-05 21:59:39 +06; 4min 16s ago
+       Docs: man:nginx(8)
+    Process: 122068 ExecStartPre=/usr/sbin/nginx -t -q -g daemon on; master_process on; (code=exited, s>
+    Process: 122069 ExecStart=/usr/sbin/nginx -g daemon on; master_process on; (code=exited, status=0/S>
+   Main PID: 122185 (nginx)
+      Tasks: 17 (limit: 18499)
+     Memory: 14.0M
+        CPU: 103ms
+     CGroup: /system.slice/nginx.service
+             ├─122185 "nginx: master process /usr/sbin/nginx -g daemon on; master_process on;"
+             ├─122187 "nginx: worker process" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" >
+             ├─122188 "nginx: worker process" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" >
+             ├─122189 "nginx: worker process" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" >
+             ├─122190 "nginx: worker process" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" >
+             ├─122191 "nginx: worker process" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" >
+             ├─122192 "nginx: worker process" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" >
+             ├─122193 "nginx: worker process" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" >
+             ├─122194 "nginx: worker process" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" >
+             ├─122195 "nginx: worker process" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" >
+             ├─122196 "nginx: worker process" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" >
+             ├─122197 "nginx: worker process" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" >
+             ├─122198 "nginx: worker process" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" >
+             ├─122199 "nginx: worker process" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" >
+             ├─122200 "nginx: worker process" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" >
+             ├─122201 "nginx: worker process" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" >
+             └─122202 "nginx: worker process" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" >
+
+окт 05 21:59:39 sonya-laptop systemd[1]: Starting A high performance web server and a reverse proxy ser>
+окт 05 21:59:39 sonya-laptop systemd[1]: Started A high performance web server and a reverse proxy serv>
+sonya@sonya-laptop:~/dev/auca/infosec/infosec$ sudo tee /etc/nginx/sites-available/my_site > /dev/null <<'EOF'
+server {
+    listen 8000;
+    server_name localhost;
+    root /var/www/html;
+    index my_site.html;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+}
+EOF
+sonya@sonya-laptop:~/dev/auca/infosec/infosec$ cat /etc/nginx/sites-available/my_site
+server {
+    listen 8000;
+    server_name localhost;
+    root /var/www/html;
+    index my_site.html;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+}
+sonya@sonya-laptop:~/dev/auca/infosec/infosec$ echo '<div>My site on 8000</div>' | sudo tee /var/www/html/my_site.html
+<div>My site on 8000</div>
+sonya@sonya-laptop:~/dev/auca/infosec/infosec$ sudo ln -s /etc/nginx/sites-available/my_site /etc/nginx/sites-enabled/
+sonya@sonya-laptop:~/dev/auca/infosec/infosec$ ls -l /etc/nginx/sites-enabled/
+total 0
+lrwxrwxrwx 1 root root 34 окт  5 21:59 default -> /etc/nginx/sites-available/default
+lrwxrwxrwx 1 root root 34 окт  5 22:04 my_site -> /etc/nginx/sites-available/my_site
+sonya@sonya-laptop:~/dev/auca/infosec/infosec$ sudo nginx -t
+nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+nginx: configuration file /etc/nginx/nginx.conf test is successful
+sonya@sonya-laptop:~/dev/auca/infosec/infosec$ sudo systemctl reload nginx
+sonya@sonya-laptop:~/dev/auca/infosec/infosec$ curl http://localhost:8000
+<div>My site on 8000</div>
+
+sonya@sonya-laptop:~/dev/auca/infosec/infosec$ mkdir lab10
+sonya@sonya-laptop:~/dev/auca/infosec/infosec$ cd lab10
+sonya@sonya-laptop:~/dev/auca/infosec/infosec/lab10$ vim api.py
+sonya@sonya-laptop:~/dev/auca/infosec/infosec/lab10$ python3 ~/dev/auca/infosec/infosec/lab10/api.py
+127.0.0.1 - - [05/Oct/2026 22:07:59] "GET /hello HTTP/1.1" 200 -
+127.0.0.1 - - [05/Oct/2026 22:08:03] "GET /time HTTP/1.1" 200 -
+
+sonya@sonya-laptop:~/dev/auca/infosec/infosec/lab10$ curl http://127.0.0.1:5000/hello
+{
+  "message": "Hello from the API!"
+}sonya@sonya-laptop:~/dev/auca/infosec/infosec/lab10$ curl http://127.0.0.1:5000/time
+{
+  "time": "2026-10-05T22:08:03.316939"
+}sonya@sonya-laptop:~/dev/auca/infosec/infosec/lab10$ 
+
+}sonya@sonya-laptop:~/dev/auca/infosec/infosec/lab10$ 
+sonya@sonya-laptop:~/dev/auca/infosec/infosec/lab10$ sudo tee /etc/nginx/sites-available/my_site > /dev/null <<'EOF'
+server {
+    listen 8000;
+    server_name localhost;
+    root /var/www/html;
+    index my_site.html;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+
+    location /api/ {
+        proxy_pass http://127.0.0.1:5000/;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+}
+EOF
+[sudo] password for sonya: 
+sonya@sonya-laptop:~/dev/auca/infosec/infosec/lab10$ sudo nginx -t
+nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+nginx: configuration file /etc/nginx/nginx.conf test is successful
+sonya@sonya-laptop:~/dev/auca/infosec/infosec/lab10$ sudo systemctl reload nginx
+sonya@sonya-laptop:~/dev/auca/infosec/infosec/lab10$ curl http://localhost:8000/
+<div>My site on 8000</div>
+sonya@sonya-laptop:~/dev/auca/infosec/infosec/lab10$ curl http://localhost:8000/api/hello
+{
+  "message": "Hello from the API!"
+}sonya@sonya-laptop:~/dev/auca/infosec/infosec/lab10$ curl http://localhost:8000/api/time
+{
+  "time": "2026-10-05T22:09:25.790306"
+}sonya@sonya-laptop:~/dev/auca/infosec/infosec/lab10$ curl http://localhost:8000/api/whatever
+{
+  "path_received": "/whatever",
+  "client_address": "127.0.0.1",
+  "headers": {
+    "Host": "localhost",
+    "X-Real-IP": "127.0.0.1",
+    "X-Forwarded-For": "127.0.0.1",
+    "X-Forwarded-Proto": "http",
+    "Connection": "close",
+    "User-Agent": "curl/7.81.0",
+    "Accept": "*/*"
+  }
+}
+sonya@sonya-laptop:~/dev/auca/infosec/infosec$ mkdir lab10
+sonya@sonya-laptop:~/dev/auca/infosec/infosec$ cd lab10
+sonya@sonya-laptop:~/dev/auca/infosec/infosec/lab10$ vim api.py
+sonya@sonya-laptop:~/dev/auca/infosec/infosec/lab10$ python3 ~/dev/auca/infosec/infosec/lab10/api.py
+127.0.0.1 - - [05/Oct/2026 22:07:59] "GET /hello HTTP/1.1" 200 -
+127.0.0.1 - - [05/Oct/2026 22:08:03] "GET /time HTTP/1.1" 200 -
+127.0.0.1 - - [05/Oct/2026 22:09:19] "GET /hello HTTP/1.0" 200 -
+127.0.0.1 - - [05/Oct/2026 22:09:25] "GET /time HTTP/1.0" 200 -
+127.0.0.1 - - [05/Oct/2026 22:09:29] "GET /whatever HTTP/1.0" 200 -

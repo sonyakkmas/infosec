@@ -1,0 +1,104 @@
+sonya@sonya-laptop:~/dev/auca/infosec$ touch file.txt
+sonya@sonya-laptop:~/dev/auca/infosec$ vim write_line.sh
+sonya@sonya-laptop:~/dev/auca/infosec$ chmod +x write_line.sh
+sonya@sonya-laptop:~/dev/auca/infosec$ ./write_line.sh
+sonya@sonya-laptop:~/dev/auca/infosec$ cat file.txt 
+New line at дш,  5-окт 2026 ж, 21:37:18 +06
+sonya@sonya-laptop:~/dev/auca/infosec$ crontab -e
+no crontab for sonya - using an empty one
+crontab: installing new crontab
+sonya@sonya-laptop:~/dev/auca/infosec$ crontab -r
+sonya@sonya-laptop:~/dev/auca/infosec$ crontab -e
+no crontab for sonya - using an empty one
+crontab: installing new crontab
+sonya@sonya-laptop:~/dev/auca/infosec$ crontab -l
+# Edit this file to introduce tasks to be run by cron.
+# 
+# Each task to run has to be defined through a single line
+# indicating with different fields when the task will be run
+# and what command to run for the task
+# 
+# To define the time you can provide concrete values for
+# minute (m), hour (h), day of month (dom), month (mon),
+# and day of week (dow) or use '*' in these fields (for 'any').
+# 
+# Notice that tasks will be started based on the cron's system
+# daemon's notion of time and timezones.
+# 
+# Output of the crontab jobs (including errors) is sent through
+# email to the user the crontab file belongs to (unless redirected).
+# 
+# For example, you can run a backup of all your user accounts
+# at 5 a.m every week with:
+# 0 5 * * 1 tar -zcf /var/backups/home.tgz /home/
+# 
+# For more information see the manual pages of crontab(5) and cron(8)
+# 
+# m h  dom mon dow   command
+* * * * * /home/sonya/dev/auca/infosec/write_line.sh >> /home/sonya/dev/auca/infosec/cron.log 2>&1
+sonya@sonya-laptop:~/dev/auca/infosec$ cat file.txt
+New line at дш,  5-окт 2026 ж, 21:37:18 +06
+sonya@sonya-laptop:~/dev/auca/infosec$ cat file.txt
+New line at дш,  5-окт 2026 ж, 21:37:18 +06
+sonya@sonya-laptop:~/dev/auca/infosec$ cat file.txt
+New line at дш,  5-окт 2026 ж, 21:37:18 +06
+New line at дш,  5-окт 2026 ж, 21:39:01 +06
+sonya@sonya-laptop:~/dev/auca/infosec$ cd infosec/
+sonya@sonya-laptop:~/dev/auca/infosec/infosec$ mkdir -p data backups
+sonya@sonya-laptop:~/dev/auca/infosec/infosec$ echo "hello" > data/notes.txt
+sonya@sonya-laptop:~/dev/auca/infosec/infosec$ echo "config=1" > data/app.conf
+sonya@sonya-laptop:~/dev/auca/infosec/infosec$ vim backup.py
+sonya@sonya-laptop:~/dev/auca/infosec/infosec$ chmod +x backup.py
+sonya@sonya-laptop:~/dev/auca/infosec/infosec$ which python3
+/usr/bin/python3
+sonya@sonya-laptop:~/dev/auca/infosec/infosec$ /usr/bin/python3 /home/sonya/dev/auca/infosec/backup.py
+/usr/bin/python3: can't open file '/home/sonya/dev/auca/infosec/backup.py': [Errno 2] No such file or directory
+sonya@sonya-laptop:~/dev/auca/infosec/infosec$ /usr/bin/python3 /home/sonya/dev/auca/infosec/infosec/backup.py
+Traceback (most recent call last):
+  File "/home/sonya/dev/auca/infosec/infosec/backup.py", line 16, in <module>
+    tar.add(SOURCE, arcname=SOURCE.name)
+  File "/usr/lib/python3.10/tarfile.py", line 2210, in add
+    tarinfo = self.gettarinfo(name, arcname)
+  File "/usr/lib/python3.10/tarfile.py", line 2083, in gettarinfo
+    statres = os.lstat(name)
+FileNotFoundError: [Errno 2] No such file or directory: '/home/sonya/dev/auca/infosec/data'
+sonya@sonya-laptop:~/dev/auca/infosec/infosec$ ls
+backup.py              current_time.sh        greeting.sh  lab3.txt  lab7.txt  README.md
+backups                data                   lab10.txt    lab4.txt  lab8.txt  write_line.sh
+contract_redacted.pdf  delete_empty_files.sh  lab1.txt     lab5.txt  lab9.txt
+count_word.sh          file.txt               lab2.txt     lab6.txt  phishing
+sonya@sonya-laptop:~/dev/auca/infosec/infosec$ vim backup.py 
+sonya@sonya-laptop:~/dev/auca/infosec/infosec$ /usr/bin/python3 /home/sonya/dev/auca/infosec/infosec/backup.py
+2026-10-05 21:43:24 created backup_2026-10-05_21-43-24.tar.gz, removed 0 old
+sonya@sonya-laptop:~/dev/auca/infosec/infosec$ crontab -e
+crontab: installing new crontab
+sonya@sonya-laptop:~/dev/auca/infosec/infosec$ crontab -l    
+# Edit this file to introduce tasks to be run by cron.
+# 
+# Each task to run has to be defined through a single line
+# indicating with different fields when the task will be run
+# and what command to run for the task
+# 
+# To define the time you can provide concrete values for
+# minute (m), hour (h), day of month (dom), month (mon),
+# and day of week (dow) or use '*' in these fields (for 'any').
+# 
+# Notice that tasks will be started based on the cron's system
+# daemon's notion of time and timezones.
+# 
+# Output of the crontab jobs (including errors) is sent through
+# email to the user the crontab file belongs to (unless redirected).
+# 
+# For example, you can run a backup of all your user accounts
+# at 5 a.m every week with:
+# 0 5 * * 1 tar -zcf /var/backups/home.tgz /home/
+# 
+# For more information see the manual pages of crontab(5) and cron(8)
+# 
+# m h  dom mon dow   command
+* * * * * /home/sonya/dev/auca/infosec/write_line.sh >> /home/sonya/dev/auca/infosec/cron.log 2>&1
+* * * * * /usr/bin/python3 /home/sonya/dev/auca/infosec/infosec/backup.py >> /home/sonya/dev/auca/infosec/infosec/backup.log 2>&1
+sonya@sonya-laptop:~/dev/auca/infosec/infosec$ cat backup.log
+2026-10-05 21:44:01 created backup_2026-10-05_21-44-01.tar.gz, removed 0 old
+sonya@sonya-laptop:~/dev/auca/infosec/infosec$ ls backups
+backup_2026-10-05_21-43-24.tar.gz  backup_2026-10-05_21-44-01.tar.gz  backup_2026-10-05_21-45-01.tar.gz

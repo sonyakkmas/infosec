@@ -1,0 +1,761 @@
+sonya@sonya-laptop:~/dev/auca/infosec/infosec$ sudo apt update
+[sudo] password for sonya: 
+Get:1 http://security.ubuntu.com/ubuntu jammy-security InRelease [129 kB]
+Hit:2 http://kg.archive.ubuntu.com/ubuntu jammy InRelease                      
+Hit:3 https://pkg.cloudflareclient.com jammy InRelease                         
+Get:4 http://kg.archive.ubuntu.com/ubuntu jammy-updates InRelease [128 kB]
+Get:5 http://security.ubuntu.com/ubuntu jammy-security/main amd64 Packages [3 630 kB]
+Hit:6 http://kg.archive.ubuntu.com/ubuntu jammy-backports InRelease
+Get:7 http://kg.archive.ubuntu.com/ubuntu jammy-updates/main amd64 Packages [3 899 kB]
+Get:8 http://security.ubuntu.com/ubuntu jammy-security/main i386 Packages [922 kB]
+Get:9 http://security.ubuntu.com/ubuntu jammy-security/main Translation-en [506 kB]             
+Get:10 http://security.ubuntu.com/ubuntu jammy-security/restricted amd64 Packages [6 465 kB]          
+Get:11 http://kg.archive.ubuntu.com/ubuntu jammy-updates/main i386 Packages [1 098 kB]                 
+Get:12 http://kg.archive.ubuntu.com/ubuntu jammy-updates/universe i386 Packages [820 kB]               
+Get:13 http://kg.archive.ubuntu.com/ubuntu jammy-updates/universe amd64 Packages [1 285 kB]           
+Get:14 http://security.ubuntu.com/ubuntu jammy-security/restricted Translation-en [1 244 kB]           
+Get:15 http://security.ubuntu.com/ubuntu jammy-security/universe amd64 Packages [1 052 kB]             
+Get:16 http://security.ubuntu.com/ubuntu jammy-security/universe i386 Packages [711 kB]
+Get:17 http://security.ubuntu.com/ubuntu jammy-security/universe Translation-en [237 kB]
+Fetched 22,1 MB in 5s (4 158 kB/s)                                 
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+93 packages can be upgraded. Run 'apt list --upgradable' to see them.
+N: Skipping acquire of configured file 'main/binary-i386/Packages' as repository 'https://pkg.cloudflareclient.com jammy InRelease' doesn't support architecture 'i386'
+sonya@sonya-laptop:~/dev/auca/infosec/infosec$ apt search nginx
+Sorting... Done
+Full Text Search... Done
+centreon-plugins/jammy,jammy 0.0~20220113-1 all
+  Collection of Nagios plugins to monitor OS, services and network devices
+
+collectd-core/jammy-updates 5.12.0-10ubuntu0.1 amd64
+  statistics collection and monitoring daemon (core system)
+
+elpa-nginx-mode/jammy,jammy 1.1.9-2 all
+  major mode for editing nginx config files
+
+fcgiwrap/jammy 1.1.0-12 amd64
+  simple server to run CGI applications over FastCGI
+
+gitweb/jammy-updates,jammy-updates,jammy-security,jammy-security 1:2.34.1-1ubuntu1.17 all
+  fast, scalable, distributed revision control system (web interface)
+
+golang-github-gorilla-handlers-dev/jammy,jammy 1.4.2-1 all
+  collection of useful handlers for Go's net/http package
+
+golang-github-hashicorp-hcl-dev/jammy,jammy 1.0.0-1.1 all
+  Go implementation of HashiCorp Configuration Language
+
+golang-github-nginxinc-nginx-plus-go-client-dev/jammy,jammy 0.9.0-2 all
+  client for NGINX Plus API for Go (library)
+
+gunicorn/jammy,jammy 20.1.0-2 all
+  Event-based HTTP/WSGI server
+
+gunicorn-examples/jammy,jammy 20.1.0-2 all
+  Event-based HTTP/WSGI server (examples)
+
+kopano-webapp-nginx/jammy,jammy 3.5.14+dfsg1.orig-1 all
+  WebApp for the Kopano Collaboration Platform - Nginx
+
+ledgersmb/jammy-updates,jammy-updates,jammy-security,jammy-security 1.6.33+ds-1ubuntu0.1 all
+  financial accounting and ERP program
+
+lemonldap-ng-fastcgi-server/jammy,jammy 2.0.13+ds-3ubuntu1 all
+  Lemonldap::NG FastCGI server
+
+lemonldap-ng-handler/jammy,jammy 2.0.13+ds-3ubuntu1 all
+  Lemonldap::NG handler part
+
+libnginx-mod-http-auth-pam/jammy-updates,jammy-security 1.18.0-6ubuntu14.21 amd64
+  PAM authentication module for Nginx
+
+libnginx-mod-http-cache-purge/jammy-updates,jammy-security 1.18.0-6ubuntu14.21 amd64
+  Purge content from Nginx caches
+
+libnginx-mod-http-dav-ext/jammy-updates,jammy-security 1.18.0-6ubuntu14.21 amd64
+  WebDAV missing commands support for Nginx
+
+libnginx-mod-http-echo/jammy-updates,jammy-security 1.18.0-6ubuntu14.21 amd64
+  Bring echo and more shell style goodies to Nginx
+
+libnginx-mod-http-fancyindex/jammy-updates,jammy-security 1.18.0-6ubuntu14.21 amd64
+  Fancy indexes module for the Nginx
+
+libnginx-mod-http-geoip/jammy-updates,jammy-security 1.18.0-6ubuntu14.21 amd64
+  GeoIP HTTP module for Nginx
+
+libnginx-mod-http-geoip2/jammy-updates,jammy-security 1.18.0-6ubuntu14.21 amd64
+  GeoIP2 HTTP module for Nginx
+
+libnginx-mod-http-headers-more-filter/jammy-updates,jammy-security 1.18.0-6ubuntu14.21 amd64
+  Set and clear input and output headers for Nginx
+
+libnginx-mod-http-image-filter/jammy-updates,jammy-security 1.18.0-6ubuntu14.21 amd64
+  HTTP image filter module for Nginx
+
+libnginx-mod-http-ndk/jammy-updates,jammy-security 1.18.0-6ubuntu14.21 amd64
+  Nginx Development Kit module
+
+libnginx-mod-http-perl/jammy-updates,jammy-security 1.18.0-6ubuntu14.21 amd64
+  Perl module for Nginx
+
+libnginx-mod-http-subs-filter/jammy-updates,jammy-security 1.18.0-6ubuntu14.21 amd64
+  Substitution filter module for Nginx
+
+libnginx-mod-http-uploadprogress/jammy-updates,jammy-security 1.18.0-6ubuntu14.21 amd64
+  Upload progress system for Nginx
+
+libnginx-mod-http-upstream-fair/jammy-updates,jammy-security 1.18.0-6ubuntu14.21 amd64
+  Nginx Upstream Fair Proxy Load Balancer
+
+libnginx-mod-http-xslt-filter/jammy-updates,jammy-security 1.18.0-6ubuntu14.21 amd64
+  XSLT Transformation module for Nginx
+
+libnginx-mod-mail/jammy-updates,jammy-security 1.18.0-6ubuntu14.21 amd64
+  Mail module for Nginx
+
+libnginx-mod-nchan/jammy-updates,jammy-security 1.18.0-6ubuntu14.21 amd64
+  Fast, flexible pub/sub server for Nginx
+
+libnginx-mod-rtmp/jammy-updates,jammy-security 1.18.0-6ubuntu14.21 amd64
+  RTMP support for Nginx
+
+libnginx-mod-stream/jammy-updates,jammy-security 1.18.0-6ubuntu14.21 amd64
+  Stream module for Nginx
+
+libnginx-mod-stream-geoip/jammy-updates,jammy-security 1.18.0-6ubuntu14.21 amd64
+  GeoIP Stream module for Nginx
+
+libnginx-mod-stream-geoip2/jammy-updates,jammy-security 1.18.0-6ubuntu14.21 amd64
+  GeoIP2 Stream module for Nginx
+
+libplack-middleware-file-sass-perl/jammy,jammy 0.03-4.1 all
+  Sass and SCSS support for all Plack-based PSGI frameworks
+
+lua-nginx-cookie/jammy,jammy 0.1.0-1.1 all
+  Pure Lua cookie parser for the nginx embedded Lua language
+
+lua-nginx-dns/jammy,jammy 0.20-1 all
+  DNS resolver for the nginx embedded Lua language
+
+lua-nginx-kafka/jammy,jammy 0.07-1 all
+  Pure Lua Kafka producer for the nginx embedded Lua language
+
+lua-nginx-memcached/jammy,jammy 0.14-1.1 all
+  Pure Lua memcached client driver for the nginx embedded Lua language
+
+lua-nginx-redis/jammy,jammy 0.27-1.1 all
+  Pure Lua redis client driver for the nginx embedded Lua language
+
+lua-nginx-redis-connector/jammy,jammy 0.06-1 all
+  Connection utilities for lua-nginx-redis
+
+lua-nginx-string/jammy,jammy 0.11-1 all
+  String utilities for the nginx embedded Lua language
+
+lua-nginx-websocket/jammy,jammy 0.08-1 all
+  Lua websocket client driver for the nginx embedded Lua language
+
+mighttpd2/jammy 3.4.6-1build1.1 amd64
+  classical web server on WAI/warp
+
+nginx/jammy-updates,jammy-security 1.18.0-6ubuntu14.21 amd64
+  small, powerful, scalable web/proxy server
+
+nginx-common/jammy-updates,jammy-updates,jammy-security,jammy-security 1.18.0-6ubuntu14.21 all
+  small, powerful, scalable web/proxy server - common files
+
+nginx-confgen/jammy 2.0-1 amd64
+  nginx configuration file macro language and preprocessor
+
+nginx-core/jammy-updates,jammy-security 1.18.0-6ubuntu14.21 amd64
+  nginx web/proxy server (standard version)
+
+nginx-doc/jammy-updates,jammy-updates,jammy-security,jammy-security 1.18.0-6ubuntu14.21 all
+  small, powerful, scalable web/proxy server - documentation
+
+nginx-extras/jammy-updates,jammy-security 1.18.0-6ubuntu14.21 amd64
+  nginx web/proxy server (extended version)
+
+nginx-full/jammy-updates,jammy-security 1.18.0-6ubuntu14.21 amd64
+  nginx web/proxy server (standard version with 3rd parties)
+
+nginx-light/jammy-updates,jammy-security 1.18.0-6ubuntu14.21 amd64
+  nginx web/proxy server (basic version)
+
+prometheus-exporter-exporter/jammy 0.4.0-1 amd64
+  simple reverse proxy to other Prometheus exporters
+
+prometheus-nginx-exporter/jammy-updates,jammy-security 0.10.0-1ubuntu0.1 amd64
+  Prometheus exporter for NGINX webservers
+
+python3-certbot-nginx/jammy,jammy 1.21.0-1 all
+  Nginx plugin for Certbot
+
+python3-django-downloadview/jammy,jammy 2.3.0-1 all
+  efficient static file serving with Django (Python3 version)
+
+python3-geventhttpclient/jammy 1.5.3-1build1 amd64
+  high performance, concurrent HTTP client library for Python using gevent
+
+python3-gunicorn/jammy,jammy 20.1.0-2 all
+  Event-based HTTP/WSGI server (Python 3 libraries)
+
+python3-whitenoise/jammy,jammy 5.2.0-1 all
+  static file serving for WSGI applications (Python 3)
+
+resource-agents-extra/jammy-updates 1:4.7.0-1ubuntu7.4 amd64
+  Cluster Resource Agents
+
+rt4-fcgi/jammy-updates,jammy-updates,jammy-security,jammy-security 4.4.4+dfsg-2ubuntu1.22.04.1 all
+  External FastCGI support for request-tracker4
+
+rt5-fcgi/jammy,jammy 5.0.1+dfsg-1ubuntu1 all
+  External FastCGI support for request-tracker5
+
+test-kitchen/jammy,jammy 1.23.2-6 all
+  integration tool for Chef
+
+sonya@sonya-laptop:~/dev/auca/infosec/infosec$ apt search ^nginx$
+Sorting... Done
+Full Text Search... Done
+nginx/jammy-updates,jammy-security 1.18.0-6ubuntu14.21 amd64
+  small, powerful, scalable web/proxy server
+
+sonya@sonya-laptop:~/dev/auca/infosec/infosec$ apt show nginx
+Package: nginx
+Version: 1.18.0-6ubuntu14.21
+Priority: optional
+Section: web
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Nginx Maintainers <pkg-nginx-maintainers@alioth-lists.debian.net>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 52,2 kB
+Depends: nginx-core (<< 1.18.0-6ubuntu14.21.1~) | nginx-full (<< 1.18.0-6ubuntu14.21.1~) | nginx-light (<< 1.18.0-6ubuntu14.21.1~) | nginx-extras (<< 1.18.0-6ubuntu14.21.1~), nginx-core (>= 1.18.0-6ubuntu14.21) | nginx-full (>= 1.18.0-6ubuntu14.21) | nginx-light (>= 1.18.0-6ubuntu14.21) | nginx-extras (>= 1.18.0-6ubuntu14.21)
+Breaks: libnginx-mod-http-lua (<< 1.18.0-6ubuntu5)
+Homepage: https://nginx.net
+Download-Size: 3 880 B
+APT-Sources: http://kg.archive.ubuntu.com/ubuntu jammy-updates/main amd64 Packages
+Description: small, powerful, scalable web/proxy server
+ Nginx ("engine X") is a high-performance web and reverse proxy server
+ created by Igor Sysoev. It can be used both as a standalone web server
+ and as a proxy to reduce the load on back-end HTTP or mail servers.
+ .
+ This is a dependency package to install either nginx-core (by default),
+ nginx-full, nginx-light or nginx-extras.
+
+N: There is 1 additional record. Please use the '-a' switch to see it
+sonya@sonya-laptop:~/dev/auca/infosec/infosec$ apt-cache depends nginx
+nginx
+ |Depends: nginx-core
+ |Depends: nginx-full
+ |Depends: nginx-light
+  Depends: nginx-extras
+ |Depends: nginx-core
+ |Depends: nginx-full
+ |Depends: nginx-light
+  Depends: nginx-extras
+  Breaks: <libnginx-mod-http-lua>
+sonya@sonya-laptop:~/dev/auca/infosec/infosec$ apt-cache rdepends nginx
+nginx
+Reverse Depends:
+  nginx-core
+  nginx-light
+  nginx-full
+  nginx-extras
+  libnginx-mod-stream-geoip
+    nginx-core
+    nginx-extras
+    nginx-full
+    nginx-light
+  libnginx-mod-rtmp
+    nginx-core
+    nginx-extras
+    nginx-full
+    nginx-light
+  libnginx-mod-nchan
+    nginx-core
+    nginx-extras
+    nginx-full
+    nginx-light
+  libnginx-mod-http-upstream-fair
+    nginx-core
+    nginx-extras
+    nginx-full
+    nginx-light
+  libnginx-mod-http-uploadprogress
+    nginx-core
+    nginx-extras
+    nginx-full
+    nginx-light
+  libnginx-mod-http-subs-filter
+    nginx-core
+    nginx-extras
+    nginx-full
+    nginx-light
+  libnginx-mod-http-perl
+    nginx-core
+    nginx-extras
+    nginx-full
+    nginx-light
+  libnginx-mod-http-ndk
+    nginx-core
+    nginx-extras
+    nginx-full
+    nginx-light
+  libnginx-mod-http-headers-more-filter
+    nginx-core
+    nginx-extras
+    nginx-full
+    nginx-light
+  libnginx-mod-http-geoip
+    nginx-core
+    nginx-extras
+    nginx-full
+    nginx-light
+  libnginx-mod-http-fancyindex
+    nginx-core
+    nginx-extras
+    nginx-full
+    nginx-light
+  libnginx-mod-http-echo
+    nginx-core
+    nginx-extras
+    nginx-full
+    nginx-light
+  libnginx-mod-http-dav-ext
+    nginx-core
+    nginx-extras
+    nginx-full
+    nginx-light
+  libnginx-mod-http-cache-purge
+    nginx-core
+    nginx-extras
+    nginx-full
+    nginx-light
+  libnginx-mod-http-auth-pam
+    nginx-core
+    nginx-extras
+    nginx-full
+    nginx-light
+  collectd-core
+    nginx-core
+    nginx-extras
+    nginx-full
+    nginx-light
+ |cacti
+    nginx-core
+    nginx-extras
+    nginx-full
+    nginx-light
+  nginx-core
+  libnginx-mod-stream-geoip2
+    nginx-core
+    nginx-extras
+    nginx-full
+    nginx-light
+  libnginx-mod-stream
+    nginx-core
+    nginx-extras
+    nginx-full
+    nginx-light
+  libnginx-mod-mail
+    nginx-core
+    nginx-extras
+    nginx-full
+    nginx-light
+  libnginx-mod-http-xslt-filter
+    nginx-core
+    nginx-extras
+    nginx-full
+    nginx-light
+  libnginx-mod-http-image-filter
+    nginx-core
+    nginx-extras
+    nginx-full
+    nginx-light
+  libnginx-mod-http-geoip2
+    nginx-core
+    nginx-extras
+    nginx-full
+    nginx-light
+ |zoneminder
+    nginx-core
+    nginx-extras
+    nginx-full
+    nginx-light
+ |zabbix-frontend-php
+    nginx-core
+    nginx-extras
+    nginx-full
+    nginx-light
+ |sugarplum
+    nginx-core
+    nginx-extras
+    nginx-full
+    nginx-light
+  searx
+    nginx-core
+    nginx-extras
+    nginx-full
+    nginx-light
+ |samizdat
+    nginx-core
+    nginx-extras
+    nginx-full
+    nginx-light
+ |rss-bridge
+    nginx-core
+    nginx-extras
+    nginx-full
+    nginx-light
+ |rainloop
+    nginx-core
+    nginx-extras
+    nginx-full
+    nginx-light
+ |python3-searx
+    nginx-core
+    nginx-extras
+    nginx-full
+    nginx-light
+  python3-certbot-nginx
+    nginx-core
+    nginx-extras
+    nginx-full
+    nginx-light
+  nginx-light
+  nginx-full
+  nginx-extras
+  mailman3-web
+    nginx-core
+    nginx-extras
+    nginx-full
+    nginx-light
+  libnginx-mod-stream-geoip
+    nginx-core
+    nginx-extras
+    nginx-full
+    nginx-light
+  libnginx-mod-rtmp
+    nginx-core
+    nginx-extras
+    nginx-full
+    nginx-light
+  libnginx-mod-nchan
+    nginx-core
+    nginx-extras
+    nginx-full
+    nginx-light
+  libnginx-mod-http-upstream-fair
+    nginx-core
+    nginx-extras
+    nginx-full
+    nginx-light
+  libnginx-mod-http-uploadprogress
+    nginx-core
+    nginx-extras
+    nginx-full
+    nginx-light
+  libnginx-mod-http-subs-filter
+    nginx-core
+    nginx-extras
+    nginx-full
+    nginx-light
+  libnginx-mod-http-perl
+    nginx-core
+    nginx-extras
+    nginx-full
+    nginx-light
+  libnginx-mod-http-ndk
+    nginx-core
+    nginx-extras
+    nginx-full
+    nginx-light
+  libnginx-mod-http-headers-more-filter
+    nginx-core
+    nginx-extras
+    nginx-full
+    nginx-light
+  libnginx-mod-http-geoip
+    nginx-core
+    nginx-extras
+    nginx-full
+    nginx-light
+  libnginx-mod-http-fancyindex
+    nginx-core
+    nginx-extras
+    nginx-full
+    nginx-light
+  libnginx-mod-http-echo
+    nginx-core
+    nginx-extras
+    nginx-full
+    nginx-light
+  libnginx-mod-http-dav-ext
+    nginx-core
+    nginx-extras
+    nginx-full
+    nginx-light
+  libnginx-mod-http-cache-purge
+    nginx-core
+    nginx-extras
+    nginx-full
+    nginx-light
+  libnginx-mod-http-auth-pam
+    nginx-core
+    nginx-extras
+    nginx-full
+    nginx-light
+  lemonldap-ng-uwsgi-app
+    nginx-core
+    nginx-extras
+    nginx-full
+    nginx-light
+  lemonldap-ng-fastcgi-server
+    nginx-core
+    nginx-extras
+    nginx-full
+    nginx-light
+  kopano-webapp-nginx
+    nginx-core
+    nginx-extras
+    nginx-full
+    nginx-light
+  fusiondirectory
+    nginx-core
+    nginx-extras
+    nginx-full
+    nginx-light
+  fcgiwrap
+    nginx-core
+    nginx-extras
+    nginx-full
+    nginx-light
+ |colplot
+    nginx-core
+    nginx-extras
+    nginx-full
+    nginx-light
+ |cacti
+    nginx-core
+    nginx-extras
+    nginx-full
+    nginx-light
+  libnginx-mod-http-geoip2
+    nginx-core
+    nginx-extras
+    nginx-full
+    nginx-light
+  libnginx-mod-stream-geoip2
+    nginx-core
+    nginx-extras
+    nginx-full
+    nginx-light
+  libnginx-mod-stream
+    nginx-core
+    nginx-extras
+    nginx-full
+    nginx-light
+  libnginx-mod-mail
+    nginx-core
+    nginx-extras
+    nginx-full
+    nginx-light
+  libnginx-mod-http-xslt-filter
+    nginx-core
+    nginx-extras
+    nginx-full
+    nginx-light
+  libnginx-mod-http-image-filter
+    nginx-core
+    nginx-extras
+    nginx-full
+    nginx-light
+sonya@sonya-laptop:~/dev/auca/infosec/infosec$ 
+sonya@sonya-laptop:~/dev/auca/infosec/infosec$ apt-cache policy nginx
+nginx:
+  Installed: (none)
+  Candidate: 1.18.0-6ubuntu14.21
+  Version table:
+     1.18.0-6ubuntu14.21 500
+        500 http://kg.archive.ubuntu.com/ubuntu jammy-updates/main amd64 Packages
+        500 http://security.ubuntu.com/ubuntu jammy-security/main amd64 Packages
+     1.18.0-6ubuntu14 500
+        500 http://kg.archive.ubuntu.com/ubuntu jammy/main amd64 Packages
+sonya@sonya-laptop:~/dev/auca/infosec/infosec$ sudo apt install nginx
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following packages were automatically installed and are no longer required:
+  fonts-open-sans kwayland-data libfwupd2 libfwupdplugin5 libgcab-1.0-0 libkf5waylandclient5
+  libminizip1 libqrcodegencpp1 libqt5waylandclient5 librlottie0-1 libsmbios-c2 libxcb-record0
+  libxcb-screensaver0 nvidia-firmware-580-580.142 nvidia-firmware-580-580.159.03
+  nvidia-firmware-590-590.48.01 slirp4netns
+Use 'sudo apt autoremove' to remove them.
+The following additional packages will be installed:
+  libnginx-mod-http-geoip2 libnginx-mod-http-image-filter libnginx-mod-http-xslt-filter
+  libnginx-mod-mail libnginx-mod-stream libnginx-mod-stream-geoip2 nginx-common nginx-core
+Suggested packages:
+  fcgiwrap nginx-doc
+The following NEW packages will be installed:
+  libnginx-mod-http-geoip2 libnginx-mod-http-image-filter libnginx-mod-http-xslt-filter
+  libnginx-mod-mail libnginx-mod-stream libnginx-mod-stream-geoip2 nginx nginx-common nginx-core
+0 upgraded, 9 newly installed, 0 to remove and 93 not upgraded.
+Need to get 702 kB of archives.
+After this operation, 2 414 kB of additional disk space will be used.
+Do you want to continue? [Y/n] y
+Get:1 http://kg.archive.ubuntu.com/ubuntu jammy-updates/main amd64 nginx-common all 1.18.0-6ubuntu14.21 [40,5 kB]
+Get:2 http://kg.archive.ubuntu.com/ubuntu jammy-updates/main amd64 libnginx-mod-http-geoip2 amd64 1.18.0-6ubuntu14.21 [12,4 kB]
+Get:3 http://kg.archive.ubuntu.com/ubuntu jammy-updates/main amd64 libnginx-mod-http-image-filter amd64 1.18.0-6ubuntu14.21 [15,9 kB]
+Get:4 http://kg.archive.ubuntu.com/ubuntu jammy-updates/main amd64 libnginx-mod-http-xslt-filter amd64 1.18.0-6ubuntu14.21 [14,3 kB]
+Get:5 http://kg.archive.ubuntu.com/ubuntu jammy-updates/main amd64 libnginx-mod-mail amd64 1.18.0-6ubuntu14.21 [46,3 kB]
+Get:6 http://kg.archive.ubuntu.com/ubuntu jammy-updates/main amd64 libnginx-mod-stream amd64 1.18.0-6ubuntu14.21 [73,5 kB]
+Get:7 http://kg.archive.ubuntu.com/ubuntu jammy-updates/main amd64 libnginx-mod-stream-geoip2 amd64 1.18.0-6ubuntu14.21 [10,1 kB]
+Get:8 http://kg.archive.ubuntu.com/ubuntu jammy-updates/main amd64 nginx-core amd64 1.18.0-6ubuntu14.21 [485 kB]
+Get:9 http://kg.archive.ubuntu.com/ubuntu jammy-updates/main amd64 nginx amd64 1.18.0-6ubuntu14.21 [3 880 B]
+Fetched 702 kB in 1s (724 kB/s)
+Preconfiguring packages ...
+Selecting previously unselected package nginx-common.
+(Reading database ... 307929 files and directories currently installed.)
+Preparing to unpack .../0-nginx-common_1.18.0-6ubuntu14.21_all.deb ...
+Unpacking nginx-common (1.18.0-6ubuntu14.21) ...
+Selecting previously unselected package libnginx-mod-http-geoip2.
+Preparing to unpack .../1-libnginx-mod-http-geoip2_1.18.0-6ubuntu14.21_amd64.deb ...
+Unpacking libnginx-mod-http-geoip2 (1.18.0-6ubuntu14.21) ...
+Selecting previously unselected package libnginx-mod-http-image-filter.
+Preparing to unpack .../2-libnginx-mod-http-image-filter_1.18.0-6ubuntu14.21_amd64.deb ...
+Unpacking libnginx-mod-http-image-filter (1.18.0-6ubuntu14.21) ...
+Selecting previously unselected package libnginx-mod-http-xslt-filter.
+Preparing to unpack .../3-libnginx-mod-http-xslt-filter_1.18.0-6ubuntu14.21_amd64.deb ...
+Unpacking libnginx-mod-http-xslt-filter (1.18.0-6ubuntu14.21) ...
+Selecting previously unselected package libnginx-mod-mail.
+Preparing to unpack .../4-libnginx-mod-mail_1.18.0-6ubuntu14.21_amd64.deb ...
+Unpacking libnginx-mod-mail (1.18.0-6ubuntu14.21) ...
+Selecting previously unselected package libnginx-mod-stream.
+Preparing to unpack .../5-libnginx-mod-stream_1.18.0-6ubuntu14.21_amd64.deb ...
+Unpacking libnginx-mod-stream (1.18.0-6ubuntu14.21) ...
+Selecting previously unselected package libnginx-mod-stream-geoip2.
+Preparing to unpack .../6-libnginx-mod-stream-geoip2_1.18.0-6ubuntu14.21_amd64.deb ...
+Unpacking libnginx-mod-stream-geoip2 (1.18.0-6ubuntu14.21) ...
+Selecting previously unselected package nginx-core.
+Preparing to unpack .../7-nginx-core_1.18.0-6ubuntu14.21_amd64.deb ...
+Unpacking nginx-core (1.18.0-6ubuntu14.21) ...
+Selecting previously unselected package nginx.
+Preparing to unpack .../8-nginx_1.18.0-6ubuntu14.21_amd64.deb ...
+Unpacking nginx (1.18.0-6ubuntu14.21) ...
+Setting up nginx-common (1.18.0-6ubuntu14.21) ...
+Created symlink /etc/systemd/system/multi-user.target.wants/nginx.service → /lib/systemd/system/nginx.se
+rvice.
+Setting up libnginx-mod-http-xslt-filter (1.18.0-6ubuntu14.21) ...
+Setting up libnginx-mod-http-geoip2 (1.18.0-6ubuntu14.21) ...
+Setting up libnginx-mod-mail (1.18.0-6ubuntu14.21) ...
+Setting up libnginx-mod-http-image-filter (1.18.0-6ubuntu14.21) ...
+Setting up libnginx-mod-stream (1.18.0-6ubuntu14.21) ...
+Setting up libnginx-mod-stream-geoip2 (1.18.0-6ubuntu14.21) ...
+Setting up nginx-core (1.18.0-6ubuntu14.21) ...
+ * Upgrading binary nginx                                                                        [ OK ] 
+Setting up nginx (1.18.0-6ubuntu14.21) ...
+Processing triggers for man-db (2.10.2-1) ...
+Processing triggers for ufw (0.36.1-4ubuntu0.1) ...
+
+sonya@sonya-laptop:~/dev/auca/infosec/infosec$ dpkg -l | grep nginx 
+ii  libnginx-mod-http-geoip2                        1.18.0-6ubuntu14.21                              amd64        GeoIP2 HTTP module for Nginx
+ii  libnginx-mod-http-image-filter                  1.18.0-6ubuntu14.21                              amd64        HTTP image filter module for Nginx
+ii  libnginx-mod-http-xslt-filter                   1.18.0-6ubuntu14.21                              amd64        XSLT Transformation module for Nginx
+ii  libnginx-mod-mail                               1.18.0-6ubuntu14.21                              amd64        Mail module for Nginx
+ii  libnginx-mod-stream                             1.18.0-6ubuntu14.21                              amd64        Stream module for Nginx
+ii  libnginx-mod-stream-geoip2                      1.18.0-6ubuntu14.21                              amd64        GeoIP2 Stream module for Nginx
+ii  nginx                                           1.18.0-6ubuntu14.21                              amd64        small, powerful, scalable web/proxy server
+ii  nginx-common                                    1.18.0-6ubuntu14.21                              all          small, powerful, scalable web/proxy server - common files
+ii  nginx-core                                      1.18.0-6ubuntu14.21                              amd64        nginx web/proxy server (standard version)
+sonya@sonya-laptop:~/dev/auca/infosec/infosec$ dpkg -L nginx-core
+/.
+/usr
+/usr/sbin
+/usr/sbin/nginx
+/usr/share
+/usr/share/doc
+/usr/share/doc/nginx-core
+/usr/share/doc/nginx-core/copyright
+/usr/share/man
+/usr/share/man/man8
+/usr/share/man/man8/nginx.8.gz
+/usr/share/doc/nginx-core/changelog.Debian.gz
+sonya@sonya-laptop:~/dev/auca/infosec/infosec$ which nginx
+/usr/sbin/nginx
+
+sonya@sonya-laptop:~/dev/auca/infosec/infosec$ sudo apt remove nginx
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following packages were automatically installed and are no longer required:
+  fonts-open-sans kwayland-data libfwupd2 libfwupdplugin5 libgcab-1.0-0 libkf5waylandclient5
+  libminizip1 libqrcodegencpp1 libqt5waylandclient5 librlottie0-1 libsmbios-c2 libxcb-record0
+  libxcb-screensaver0 nvidia-firmware-580-580.142 nvidia-firmware-580-580.159.03
+  nvidia-firmware-590-590.48.01 slirp4netns
+Use 'sudo apt autoremove' to remove them.
+The following packages will be REMOVED:
+  nginx
+0 upgraded, 0 newly installed, 1 to remove and 93 not upgraded.
+After this operation, 52,2 kB disk space will be freed.
+Do you want to continue? [Y/n] y
+(Reading database ... 308017 files and directories currently installed.)
+Removing nginx (1.18.0-6ubuntu14.21) ...
+sonya@sonya-laptop:~/dev/auca/infosec/infosec$ ls /etc/nginx
+conf.d          koi-utf     modules-available  proxy_params     sites-enabled  win-utf
+fastcgi.conf    koi-win     modules-enabled    scgi_params      snippets
+fastcgi_params  mime.types  nginx.conf         sites-available  uwsgi_params
+sonya@sonya-laptop:~/dev/auca/infosec/infosec$ sudo apt purge nginx nginx-common
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+Package 'nginx' is not installed, so not removed
+The following packages were automatically installed and are no longer required:
+  fonts-open-sans kwayland-data libfwupd2 libfwupdplugin5 libgcab-1.0-0 libkf5waylandclient5
+  libminizip1 libqrcodegencpp1 libqt5waylandclient5 librlottie0-1 libsmbios-c2 libxcb-record0
+  libxcb-screensaver0 nvidia-firmware-580-580.142 nvidia-firmware-580-580.159.03
+  nvidia-firmware-590-590.48.01 slirp4netns
+Use 'sudo apt autoremove' to remove them.
+The following packages will be REMOVED:
+  libnginx-mod-http-geoip2* libnginx-mod-http-image-filter* libnginx-mod-http-xslt-filter*
+  libnginx-mod-mail* libnginx-mod-stream* libnginx-mod-stream-geoip2* nginx-common* nginx-core*
+0 upgraded, 0 newly installed, 8 to remove and 93 not upgraded.
+After this operation, 2 361 kB disk space will be freed.
+Do you want to continue? [Y/n] y
+(Reading database ... 308014 files and directories currently installed.)
+Removing nginx-core (1.18.0-6ubuntu14.21) ...
+Removing libnginx-mod-http-geoip2 (1.18.0-6ubuntu14.21) ...
+Removing libnginx-mod-http-image-filter (1.18.0-6ubuntu14.21) ...
+Removing libnginx-mod-http-xslt-filter (1.18.0-6ubuntu14.21) ...
+Removing libnginx-mod-mail (1.18.0-6ubuntu14.21) ...
+Removing libnginx-mod-stream-geoip2 (1.18.0-6ubuntu14.21) ...
+Removing libnginx-mod-stream (1.18.0-6ubuntu14.21) ...
+Removing nginx-common (1.18.0-6ubuntu14.21) ...
+Processing triggers for man-db (2.10.2-1) ...
+(Reading database ... 307955 files and directories currently installed.)
+Purging configuration files for libnginx-mod-mail (1.18.0-6ubuntu14.21) ...
+Purging configuration files for libnginx-mod-http-image-filter (1.18.0-6ubuntu14.21) ...
+Purging configuration files for libnginx-mod-stream (1.18.0-6ubuntu14.21) ...
+Purging configuration files for nginx-common (1.18.0-6ubuntu14.21) ...
+dpkg: warning: while removing nginx-common, directory '/var/www/html' not empty so not removed
+Purging configuration files for libnginx-mod-http-xslt-filter (1.18.0-6ubuntu14.21) ...
+Purging configuration files for libnginx-mod-http-geoip2 (1.18.0-6ubuntu14.21) ...
+Purging configuration files for libnginx-mod-stream-geoip2 (1.18.0-6ubuntu14.21) ...
+Processing triggers for ufw (0.36.1-4ubuntu0.1) ...
+sonya@sonya-laptop:~/dev/auca/infosec/infosec$ sudo apt autoremove
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following packages will be REMOVED:
+  fonts-open-sans kwayland-data libfwupd2 libfwupdplugin5 libgcab-1.0-0 libkf5waylandclient5
+  libminizip1 libqrcodegencpp1 libqt5waylandclient5 librlottie0-1 libsmbios-c2 libxcb-record0
+  libxcb-screensaver0 nvidia-firmware-580-580.142 nvidia-firmware-580-580.159.03
+  nvidia-firmware-590-590.48.01 slirp4netns
+0 upgraded, 0 newly installed, 17 to remove and 93 not upgraded.
+After this operation, 322 MB disk space will be freed.
+Do you want to continue? [Y/n] n
+Abort.

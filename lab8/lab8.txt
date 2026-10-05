@@ -1,0 +1,12 @@
+sonya@sonya-laptop:~/dev/auca/infosec/infosec$ cd lab8/
+sonya@sonya-laptop:~/dev/auca/infosec/infosec/lab8$ touch file.txt
+sonya@sonya-laptop:~/dev/auca/infosec/infosec/lab8$ vim file.txt
+sonya@sonya-laptop:~/dev/auca/infosec/infosec/lab8$ cat file.txt
+some text
+more text
+even more text
+sonya@sonya-laptop:~/dev/auca/infosec/infosec/lab8$ vim file.txt
+sonya@sonya-laptop:~/dev/auca/infosec/infosec/lab8$ cat file.txt
+some text
+more text
+sonya@sonya-laptop:~/dev/auca/infosec/infosec/lab8$ 
