@@ -370,3 +370,70 @@ Removing user `user2' ...
 Warning: group `user2' has no more members.
 Done.
 sonya@sonya-laptop:~/dev/auca/infosec/infosec$ sudo groupdel devteam
+
+sonya@sonya-laptop:~/dev/auca/infosec/infosec/lab5$ sudo adduser user1
+Adding user `user1' ...
+Adding new group `user1' (1001) ...
+Adding new user `user1' (1001) with group `user1' ...
+Creating home directory `/home/user1' ...
+Copying files from `/etc/skel' ...
+New password: 
+Retype new password: 
+passwd: password updated successfully
+Changing the user information for user1
+Enter the new value, or press ENTER for the default
+	Full Name []: User1
+	Room Number []: -
+	Work Phone []: -
+	Home Phone []: -
+	Other []: -
+Is the information correct? [Y/n] y
+sonya@sonya-laptop:~/dev/auca/infosec/infosec/lab5$ sudo adduser user2
+Adding user `user2' ...
+Adding new group `user2' (1002) ...
+Adding new user `user2' (1002) with group `user2' ...
+Creating home directory `/home/user2' ...
+Copying files from `/etc/skel' ...
+New password: 
+Retype new password: 
+passwd: password updated successfully
+Changing the user information for user2
+Enter the new value, or press ENTER for the default
+	Full Name []: User2
+	Room Number []: -
+	Work Phone []: -
+	Home Phone []: -
+	Other []: -
+Is the information correct? [Y/n] y
+sonya@sonya-laptop:~/dev/auca/infosec/infosec/lab5$ sudo groupadd devteam
+sonya@sonya-laptop:~/dev/auca/infosec/infosec/lab5$ sudo usermod -aG devteam user1 
+sonya@sonya-laptop:~/dev/auca/infosec/infosec/lab5$ groups user1; groups user2
+user1 : user1 devteam
+user2 : user2
+sonya@sonya-laptop:~/dev/auca/infosec/infosec/lab5$ sudo mkdir /srv/devshare
+sonya@sonya-laptop:~/dev/auca/infosec/infosec/lab5$ sudo chown root /srv/devshare
+sonya@sonya-laptop:~/dev/auca/infosec/infosec/lab5$ sudo chgrp devteam /srv/devshare
+sonya@sonya-laptop:~/dev/auca/infosec/infosec/lab5$ sudo chmod 2770 /srv/devshare
+sonya@sonya-laptop:~/dev/auca/infosec/infosec/lab5$ ls -ld /srv/devshare
+drwxrws--- 2 root devteam 4096 окт  5 22:50 /srv/devshare
+sonya@sonya-laptop:~/dev/auca/infosec/infosec/lab5$ su - user1
+Password: 
+user1@sonya-laptop:~$ echo "hello from user1" > /srv/devshare/notes.txt
+user1@sonya-laptop:~$ ls -l /srv/devshare/notes.txt
+-rw-rw-r-- 1 user1 devteam 17 окт  5 22:50 /srv/devshare/notes.txt
+user1@sonya-laptop:~$ chmod 640 /srv/devshare/notes.txt
+user1@sonya-laptop:~$ exit
+logout
+sonya@sonya-laptop:~/dev/auca/infosec/infosec/lab5$ su - user2
+Password: 
+su: Authentication failure
+sonya@sonya-laptop:~/dev/auca/infosec/infosec/lab5$ su - user2
+Password: 
+user2@sonya-laptop:~$ ls /srv/devshare 
+ls: cannot open directory '/srv/devshare': Permission denied
+user2@sonya-laptop:~$ cat /srv/devshare/notes.txt 
+cat: /srv/devshare/notes.txt: Permission denied
+user2@sonya-laptop:~$ ls /home/user1
+ls: cannot open directory '/home/user1': Permission denied
+user2@sonya-laptop:~$ exit
+logout

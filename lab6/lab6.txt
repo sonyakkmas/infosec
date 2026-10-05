@@ -69,3 +69,43 @@ Removing user `user2' ...
 Warning: group `user2' has no more members.
 Done.
 sonya@sonya-laptop:/tmp$ sudo groupdel devteam
+
+
+sonya@sonya-laptop:~/dev/auca/infosec/infosec/lab6$ touch private.txt public.txt script.sh open.txt
+sonya@sonya-laptop:~/dev/auca/infosec/infosec/lab6$ mkdir privdir sharedir listonly
+sonya@sonya-laptop:~/dev/auca/infosec/infosec/lab6$ chmod 600 private.txt
+sonya@sonya-laptop:~/dev/auca/infosec/infosec/lab6$ chmod 644 public.txt 
+sonya@sonya-laptop:~/dev/auca/infosec/infosec/lab6$ chmod 755 script.sh
+sonya@sonya-laptop:~/dev/auca/infosec/infosec/lab6$ chmod 777 open.txt
+sonya@sonya-laptop:~/dev/auca/infosec/infosec/lab6$ chmod 700 privdir
+sonya@sonya-laptop:~/dev/auca/infosec/infosec/lab6$ chmod 755 sharedir
+sonya@sonya-laptop:~/dev/auca/infosec/infosec/lab6$ chmod 711 listonly
+sonya@sonya-laptop:~/dev/auca/infosec/infosec/lab6$ echo "secret" > listonly/known.txt && chmod 644 listonly/known.txt
+sonya@sonya-laptop:~/dev/auca/infosec/infosec/lab6$ chmod 755 ~ 
+sonya@sonya-laptop:~/dev/auca/infosec/infosec/lab6$ ^C
+sonya@sonya-laptop:~/dev/auca/infosec/infosec/lab6$ su - user2
+Password: 
+user2@sonya-laptop:~$ ls /home/sonya/dev/auca/infosec/infosec/lab6/listonly    
+ls: cannot open directory '/home/sonya/dev/auca/infosec/infosec/lab6/listonly': Permission denied
+user2@sonya-laptop:~$ cat /home/sonya/dev/auca/infosec/infosec/lab6/listonly/known.txt 
+secret
+user2@sonya-laptop:~$ cat /home/sonya/dev/auca/infosec/infosec/lab6/private.txt
+cat: /home/sonya/dev/auca/infosec/infosec/lab6/private.txt: Permission denied
+user2@sonya-laptop:~$ echo "pwned" >> /home/sonya/dev/auca/infosec/infosec/lab6/open.txt 
+user2@sonya-laptop:~$ exit
+logout
+sonya@sonya-laptop:~/dev/auca/infosec/infosec/lab6$ echo 'echo "legit"' > run.sh && chmod 777 run.sh
+sonya@sonya-laptop:~/dev/auca/infosec/infosec/lab6$ su - user2 -c 'echo "echo injected by user2" >> /home/sonya/dev/auca/infosec/infosec/lab6/run.sh'
+Password: 
+sonya@sonya-laptop:~/dev/auca/infosec/infosec/lab6$ ./run.sh
+legit
+injected by user2
+sonya@sonya-laptop:~/dev/auca/infosec/infosec/lab6$ ls -ld /tmp 
+drwxrwxrwt 27 root root 32768 окт  5 22:59 /tmp
+sonya@sonya-laptop:~/dev/auca/infosec/infosec/lab6$ echo hi > /tmp/sonya_file
+sonya@sonya-laptop:~/dev/auca/infosec/infosec/lab6$ su - user2 -c 'rm -f /tmp/sonya_file'
+Password: 
+rm: cannot remove '/tmp/sonya_file': Operation not permitted
+sonya@sonya-laptop:~/dev/auca/infosec/infosec/lab6$ find /home/sonya/dev/auca/infosec/infosec/lab6 -perm -o+w -type f
+/home/sonya/dev/auca/infosec/infosec/lab6/open.txt
+/home/sonya/dev/auca/infosec/infosec/lab6/run.sh
